@@ -217,3 +217,55 @@ footer a:hover {
     font-weight: bold;
   }
 }
+
+.references {
+  list-style: none;
+  padding: 0;
+}
+.references li {
+  margin-bottom: 1.2em;
+  line-height: 1.6;
+  text-align: justify;
+  position: relative;
+  padding-left: 1em;
+}
+.references li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: #003366;
+}
+.references .authors {
+  font-weight: 500;
+  color: #003366;
+}
+.references .title {
+  font-style: italic;
+}
+.references .journal {
+  font-weight: 500;
+}
+.references .links a {
+  color: #0066cc;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.references .links a:hover {
+  color: #003366;
+  text-decoration: underline;
+}
+.references .links {
+  font-size: 0.95em;
+}
+
+/* Mobile responsiveness for references */
+@media (max-width: 768px) {
+  .references li {
+    padding-left: 1.2em;
+    font-size: 0.95em;
+  }
+  .references .links {
+    display: block;
+    margin-top: 0.3em;
+  }
+}
