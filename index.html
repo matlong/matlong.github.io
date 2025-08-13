@@ -16,34 +16,41 @@
       background: #003366;
       color: white;
       padding: 30px;
-      display: grid;
-      grid-template-columns: 1fr auto;
-      gap: 30px;
+      display: flex;
+      justify-content: space-between;
       align-items: center;
+      position: relative;
+      min-height: 180px;
     }
-    header img {
+    .header-content {
+      max-width: 70%;
+    }
+    .profile-photo {
+      position: absolute;
+      right: 30px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 150px;
+      height: 150px;
       border-radius: 50%;
-      width: 120px;
-      height: 120px;
+      border: 5px solid white;
       object-fit: cover;
-      border: 3px solid white;
-      order: 2; /* Moves photo to right */
-    }
-    .header-info {
-      order: 1; /* Moves text to left */
+      box-shadow: 0 3px 10px rgba(0,0,0,0.2);
     }
     header h1 {
       margin: 0 0 10px 0;
-      font-size: 2em;
+      font-size: 2.2em;
     }
     header p {
-      margin: 5px 0;
+      margin: 8px 0;
     }
     header a {
       color: white;
       text-decoration: none;
+      transition: opacity 0.3s;
     }
     header a:hover {
+      opacity: 0.9;
       text-decoration: underline;
     }
     nav {
@@ -69,30 +76,37 @@
     }
     main {
       max-width: 1000px;
-      margin: 30px auto;
-      padding: 0 20px;
+      margin: 40px auto;
+      padding: 0 30px;
     }
     section h2 {
       color: #003366;
-      border-bottom: 2px solid #ccc;
-      padding-bottom: 5px;
-      margin-top: 30px;
+      border-bottom: 2px solid #ddd;
+      padding-bottom: 8px;
+      margin-top: 40px;
     }
     footer {
       background: #003366;
       color: white;
       text-align: center;
-      padding: 20px;
-      margin-top: 40px;
+      padding: 25px;
+      margin-top: 50px;
     }
     @media (max-width: 768px) {
       header {
-        grid-template-columns: 1fr;
+        flex-direction: column;
         text-align: center;
+        padding-bottom: 100px;
       }
-      header img {
-        order: 0;
-        margin: 0 auto;
+      .header-content {
+        max-width: 100%;
+      }
+      .profile-photo {
+        position: relative;
+        right: auto;
+        top: auto;
+        transform: none;
+        margin: 20px auto 0;
       }
       nav {
         flex-direction: column;
@@ -106,7 +120,7 @@
 </head>
 <body>
   <header>
-    <div class="header-info">
+    <div class="header-content">
       <h1>Long Li</h1>
       <p>Starting Research Positions, Inria Rennes</p>
       <p>Email: <a href="mailto:long.li@inria.fr">long.li@inria.fr</a></p>
@@ -117,7 +131,7 @@
         <a href="cv.pdf"><i class="fas fa-file-pdf"></i> CV</a>
       </p>
     </div>
-    <img src="head.jpg" alt="Long Li">
+    <img src="photo.jpg" alt="Profile Photo" class="profile-photo">
   </header>
 
   <nav>
@@ -141,15 +155,6 @@
         <li>Bachelor in Mathematics, Université Jean Monnet Saint Etienne, France (2012–2015)</li>
       </ul>
 
-      <h2 id="experience">Research Experience</h2>
-      <h3>Starting Research Positions, Inria Rennes (2021–2025)</h3>
-      <ul>
-        <li>Research Associate in STUOD (ERC Project)</li>
-        <li>Postdoctoral Fellow in MEDIATION (French Priority Research Program)</li>
-        <li>Stochastic parameterizations of subgrid-scale ocean processes</li>
-        <li>GPU-portable, auto-differentiable solvers for stochastic GFD</li>
-      </ul>
-      
       <!-- Rest of your content sections... -->
     </section>
   </main>
