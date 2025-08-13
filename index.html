@@ -1,133 +1,166 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Long Li - Homepage</title>
-<link rel="stylesheet" href="style.css">
-<style>
-body {margin: 0; font-family: 'Segoe UI', Arial, sans-serif; color: #333;}
-header {background: #003366; color: white; padding: 20px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap;}
-header img {border-radius: 50%; width: 120px; height: 120px; object-fit: cover;}
-header div {max-width: 70%;}
-header h1 {margin: 0; font-size: 2em;}
-header p {margin: 5px 0;}
-nav {background: #f8f8f8; padding: 10px; position: sticky; top: 0; display: flex; justify-content: center; flex-wrap: wrap;}
-nav a {margin: 5px 15px; text-decoration: none; color: #003366; font-weight: bold;}
-main {display: flex; max-width: 1200px; margin: auto; padding: 20px;}
-aside {flex: 1; max-width: 250px; padding-right: 20px; border-right: 1px solid #ddd;}
-aside h3 {color: #003366; border-bottom: 2px solid #ccc; padding-bottom: 5px;}
-aside ul {list-style: none; padding: 0;}
-aside ul li {margin: 10px 0;}
-section {flex: 3; padding-left: 20px;}
-section h2 {color: #003366; border-bottom: 2px solid #ccc; padding-bottom: 5px;}
-.publication {margin-bottom: 15px;}
-.publication a {color: #0066cc;}
-footer {background: #003366; color: white; text-align: center; padding: 10px; margin-top: 20px;}
-@media (max-width: 768px) {
-  main {flex-direction: column;}
-  aside {max-width: 100%; border-right: none; padding-right: 0;}
-  section {padding-left: 0;}
-}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Long Li - Homepage</title>
+  <!-- External CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<header>
-  <img src="head.jpg" alt="Long Li">
-  <div>
-    <h1>Long Li</h1>
-    <p>Starting Research Positions, Inria Rennes</p>
-    <p>Email: <a href="mailto:long.li@inria.fr" style="color:white;">long.li@inria.fr</a></p>
-    <p><a href="https://github.com/matlong" style="color:white;">GitHub</a> | <a href="https://www.linkedin.com/in/long-li-b578a012b" style="color:white;">LinkedIn</a> | <a href="https://orcid.org/0000-0002-7580-9280" style="color:white;">ORCID</a></p>
-  </div>
-</header>
-<nav>
-  <a href="#research">Research</a>
-  <a href="#education">Education</a>
-  <a href="#experience">Experience</a>
-  <a href="#projects">Projects</a>
-  <a href="#publications">Publications</a>
-  <a href="#teaching">Teaching</a>
-  <a href="#talks">Presentations</a>
-</nav>
-<main>
-<aside>
-  <h3>Quick Links</h3>
-  <ul>
-    <li><a href="#research">Research</a></li>
-    <li><a href="#education">Education</a></li>
-    <li><a href="#experience">Experience</a></li>
-    <li><a href="#projects">Projects</a></li>
-    <li><a href="#publications">Publications</a></li>
-    <li><a href="#teaching">Teaching</a></li>
-    <li><a href="#talks">Talks</a></li>
-  </ul>
-</aside>
-<section>
-  <h2 id="research">Research Interests</h2>
-  <p>Stochastic Modeling, Uncertainty Quantification, Data Assimilation, Ensemble Forecasting, Numerical Methods, Scientific Computing, Geophysical Fluid Dynamics, Turbulence</p>
+  <header>
+    <img src="head.jpg" alt="Long Li">
+    <div>
+      <h1>Long Li</h1>
+      <p>Starting Research Positions, Inria Rennes</p>
+      <p>Email: <a href="mailto:long.li@inria.fr">long.li@inria.fr</a></p>
+      <p>
+        <a href="https://github.com/matlong"><i class="fab fa-github"></i> GitHub</a> | 
+        <a href="https://www.linkedin.com/in/long-li-b578a012b"><i class="fab fa-linkedin"></i> LinkedIn</a> | 
+        <a href="https://orcid.org/0000-0002-7580-9280"><i class="fab fa-orcid"></i> ORCID</a> |
+        <a href="cv.pdf"><i class="fas fa-file-pdf"></i> Download CV</a>
+      </p>
+    </div>
+  </header>
+  <div class="mobile-menu" onclick="toggleMenu()">☰ Menu</div>
+  <nav id="navMenu">
+    <a href="#research">Research</a>
+    <a href="#education">Education</a>
+    <a href="#experience">Experience</a>
+    <a href="#projects">Projects</a>
+    <a href="#publications">Publications</a>
+    <a href="#teaching">Teaching</a>
+    <a href="#talks">Presentations</a>
+  </nav>
+  <main>
+    <aside>
+      <h3>Quick Links</h3>
+      <ul>
+        <li><a href="#research" class="active">Research</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#publications">Publications</a></li>
+        <li><a href="#teaching">Teaching</a></li>
+        <li><a href="#talks">Talks</a></li>
+      </ul>
+    </aside>
+    <section>
+      <h2 id="research">Research Interests</h2>
+      <p>My research focuses on <strong>stochastic modeling</strong> and <strong>uncertainty quantification</strong> in geophysical fluid dynamics. I develop numerical methods and data assimilation techniques to improve ensemble forecasting for ocean and atmospheric systems. Key areas include:</p>
+      <ul>
+        <li>Stochastic parameterizations of subgrid-scale processes</li>
+        <li>GPU-accelerated solvers for stochastic PDEs</li>
+        <li>Wave-current interactions and turbulence modeling</li>
+      </ul>
 
-  <h2 id="education">Education</h2>
-  <ul>
-    <li>PhD in Applied Mathematics, Université de Rennes I, France (2017–2020)</li>
-    <li>Master in Applied Mathematics, Université Grenoble Alpes, France (2015–2017)</li>
-    <li>Bachelor in Mathematics, Université Jean Monnet Saint Etienne, France (2012–2015)</li>
-  </ul>
+      <h2 id="education">Education</h2>
+      <ul>
+        <li><strong>PhD in Applied Mathematics</strong>, Université de Rennes I, France (2017–2020)</li>
+        <li><strong>Master in Applied Mathematics</strong>, Université Grenoble Alpes, France (2015–2017)</li>
+        <li><strong>Bachelor in Mathematics</strong>, Université Jean Monnet Saint Etienne, France (2012–2015)</li>
+      </ul>
 
-  <h2 id="experience">Research Experience</h2>
-  <h3>Starting Research Positions, Inria Rennes (2021–2025)</h3>
-  <ul>
-    <li>Research Associate in STUOD (ERC Project)</li>
-    <li>Postdoctoral Fellow in MEDIATION (French Priority Research Program)</li>
-    <li>Stochastic parameterizations of subgrid-scale ocean processes</li>
-    <li>GPU-portable, auto-differentiable solvers for stochastic GFD</li>
-  </ul>
-  <h3>Doctoral Researcher, IRMAR Rennes (2017–2020)</h3>
-  <ul>
-    <li>PhD Thesis: Stochastic modeling and numerical simulation of ocean dynamics</li>
-    <li>Developed a hierarchy of stochastic large-scale ocean models</li>
-  </ul>
+      <h2 id="experience">Research Experience</h2>
+      <h3>Starting Research Positions, Inria Rennes (2021–2025)</h3>
+      <ul>
+        <li>Research Associate in STUOD (ERC Project)</li>
+        <li>Postdoctoral Fellow in MEDIATION (French Priority Research Program)</li>
+        <li>Stochastic parameterizations of subgrid-scale ocean processes</li>
+        <li>GPU-portable, auto-differentiable solvers for stochastic GFD</li>
+      </ul>
+      <h3>Doctoral Researcher, IRMAR Rennes (2017–2020)</h3>
+      <ul>
+        <li>PhD Thesis: Stochastic modeling and numerical simulation of ocean dynamics</li>
+        <li>Developed a hierarchy of stochastic large-scale ocean models</li>
+      </ul>
 
-  <h2 id="projects">Projects</h2>
-  <ul>
-    <li><strong>STUOD (ERC Project)</strong> – Research on stochastic transport in upper ocean dynamics, focusing on parameterization and coupling strategies.</li>
-    <li><strong>MEDIATION</strong> – Stochastic modeling applied to operational ocean forecasting, integrating observational data for Southern Oceans.</li>
-    <li><strong>Wave-Current Interaction Models</strong> – Developed physically consistent frameworks for coupling wave and current systems with stochastic forcing.</li>
-  </ul>
+      <h2 id="projects">Projects</h2>
+      <ul>
+        <li><strong>STUOD (ERC Project)</strong> – Research on stochastic transport in upper ocean dynamics, focusing on parameterization and coupling strategies.</li>
+        <li><strong>MEDIATION</strong> – Stochastic modeling applied to operational ocean forecasting, integrating observational data for Southern Oceans.</li>
+        <li><strong>Wave-Current Interaction Models</strong> – Developed physically consistent frameworks for coupling wave and current systems with stochastic forcing.</li>
+      </ul>
 
-  <h2 id="publications">Publications</h2>
-  <div class="publication">
-    <p><strong>Journal Articles</strong></p>
-    <ul>
-      <li>Li, L., Mémin, E., Chapron, B. (2025). A generalized stochastic formulation of the Ekman-Stokes model with statistical analyses. J. Phys. Oceanogr. <a href="https://doi.org/10.1175/JPO-D-24-0116.1">DOI</a></li>
-      <li>Tucciarone, F., Li, L., Mémin, E., Chandramouli, P. (2025). Derivation and numerical assessment of a stochastic large-scale hydrostatic primitive model. JAMES. <a href="https://doi.org/10.1029/2024MS004783">DOI</a></li>
-      <li>Clement, S., Blayo, E., Debreu, L., Brankart, J.-M., Brasseur, P., Li, L., Mémin, E. (2025). Link between stochastic grid perturbation and location uncertainty framework. JAMES. <a href="https://doi.org/10.1029/2024MS004528">DOI</a></li>
-      <li>Thiry, L., Li, L., Mémin, E., Roullet, G. (2024). A unified formulation of quasi-geostrophic and shallow water equations via projection. JAMES. <a href="https://doi.org/10.1029/2024MS004510">DOI</a></li>
-    </ul>
-    <p><strong>Book Chapters</strong></p>
-    <ul>
-      <li>Li, L., Mémin, E., Chapron, B. (2025). A stochastic Ekman-Stokes model for coupled ocean-atmosphere-wave dynamics. In Stochastic Transport in Upper Ocean Dynamics IV. <a href="http://arxiv.org/abs/2504.07632">PDF</a></li>
-      <li>Tucciarone, F., Li, L., Mémin, E., Thiry, L. (2025). Transport noise defined from wavelet transform for model-based stochastic ocean models. In MPE Vol 13. <a href="https://doi.org/10.1007/978-3-031-70660-8_13">DOI</a></li>
-    </ul>
-  </div>
+      <h2 id="publications">Publications</h2>
+      <div class="publication">
+        <h3>2025</h3>
+        <ul>
+          <li>Li, L., Mémin, E., Chapron, B. (2025). A generalized stochastic formulation of the Ekman-Stokes model with statistical analyses. <em>J. Phys. Oceanogr.</em> <a href="https://doi.org/10.1175/JPO-D-24-0116.1">DOI</a></li>
+          <li>Tucciarone, F., Li, L., Mémin, E., Chandramouli, P. (2025). Derivation and numerical assessment of a stochastic large-scale hydrostatic primitive model. <em>JAMES.</em> <a href="https://doi.org/10.1029/2024MS004783">DOI</a></li>
+        </ul>
+        <h3>2024</h3>
+        <ul>
+          <li>Thiry, L., Li, L., Mémin, E., Roullet, G. (2024). A unified formulation of quasi-geostrophic and shallow water equations via projection. <em>JAMES.</em> <a href="https://doi.org/10.1029/2024MS004510">DOI</a></li>
+        </ul>
+        <h3>Book Chapters</h3>
+        <ul>
+          <li>Li, L., Mémin, E., Chapron, B. (2025). A stochastic Ekman-Stokes model for coupled ocean-atmosphere-wave dynamics. In <em>Stochastic Transport in Upper Ocean Dynamics IV.</em> <a href="http://arxiv.org/abs/2504.07632">PDF</a></li>
+        </ul>
+      </div>
 
-  <h2 id="teaching">Teaching & Supervision</h2>
-  <ul>
-    <li>PhD Co-supervisor (2021–2024) – Guided research on stochastic parameterization of ocean models through high-resolution observations.</li>
-    <li>Master Internship Co-supervisor (2024) – Led project on stochastic ocean modeling in Mediterranean configurations.</li>
-    <li>Tutor (2013–2015) – Conducted undergraduate exercise sessions in Analysis and Algebra at Université Jean Monnet.</li>
-  </ul>
+      <h2 id="teaching">Teaching & Supervision</h2>
+      <ul>
+        <li><strong>PhD Co-supervisor</strong> (2021–2024) – Guided research on stochastic parameterization of ocean models through high-resolution observations.</li>
+        <li><strong>Master Internship Co-supervisor</strong> (2024) – Led project on stochastic ocean modeling in Mediterranean configurations.</li>
+        <li><strong>Tutor</strong> (2013–2015) – Conducted undergraduate exercise sessions in Analysis and Algebra at Université Jean Monnet.</li>
+      </ul>
 
-  <h2 id="talks">Recent Presentations</h2>
-  <ul>
-    <li>2025: Stochastic modeling in geophysical fluid dynamics – Invited Seminar, INRIA Paris</li>
-    <li>2024: A stochastic formulation of the Ekman-Stokes model – Ifremer, France</li>
-    <li>2024: Invited Seminar – CALISTO Project-Team, Inria, Valbonne</li>
-  </ul>
-</section>
-</main>
-<footer>
-  <p>&copy; 2025 Long Li | Last updated: August 2025</p>
-</footer>
+      <h2 id="talks">Recent Presentations</h2>
+      <ul>
+        <li><strong>2025</strong>: Stochastic modeling in geophysical fluid dynamics – Invited Seminar, INRIA Paris</li>
+        <li><strong>2024</strong>: A stochastic formulation of the Ekman-Stokes model – Ifremer, France</li>
+      </ul>
+    </section>
+  </main>
+  <footer>
+    <p>
+      <a href="https://github.com/matlong"><i class="fab fa-github"></i></a>
+      <a href="https://www.linkedin.com/in/long-li-b578a012b"><i class="fab fa-linkedin"></i></a>
+      <a href="https://orcid.org/0000-0002-7580-9280"><i class="fab fa-orcid"></i></a>
+      <a href="mailto:long.li@inria.fr"><i class="fas fa-envelope"></i></a>
+    </p>
+    <p>&copy; 2025 Long Li | Last updated: August 2025</p>
+  </footer>
+  <button id="backToTop" title="Go to top">↑</button>
+
+  <script>
+    // Back to Top Button
+    window.onscroll = function() {
+      if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+        document.getElementById("backToTop").style.display = "block";
+      } else {
+        document.getElementById("backToTop").style.display = "none";
+      }
+    };
+    document.getElementById("backToTop").onclick = function() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    };
+
+    // Mobile Menu Toggle
+    function toggleMenu() {
+      const nav = document.getElementById("navMenu");
+      nav.classList.toggle("active");
+    }
+
+    // Highlight active section in sidebar
+    const links = document.querySelectorAll("aside a");
+    window.addEventListener("scroll", () => {
+      let current = "";
+      document.querySelectorAll("section h2").forEach((section) => {
+        const sectionTop = section.offsetTop;
+        if (pageYOffset >= sectionTop - 100) {
+          current = section.getAttribute("id");
+        }
+      });
+      links.forEach((link) => {
+        link.classList.remove("active");
+        if (link.getAttribute("href") === `#${current}`) {
+          link.classList.add("active");
+        }
+      });
+    });
+  </script>
 </body>
 </html>
