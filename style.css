@@ -239,6 +239,9 @@ footer a:hover {
   font-weight: 500;
   color: #003366;
 }
+.references .authors b {
+  font-weight: 700; /* Extra bold for your name */
+}
 .references .title {
   font-style: italic;
 }
