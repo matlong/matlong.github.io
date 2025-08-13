@@ -5,77 +5,165 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Long Li - Research Scientist in Applied Mathematics</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <style>
-    /* Core styles remain the same as previous version */
-    body {margin: 0; font-family: 'Segoe UI', Arial, sans-serif; color: #333; line-height: 1.6;}
-    header {
-      background: #003366;
-      color: white;
-      padding: 30px;
-      display: grid;
-      grid-template-columns: auto 1fr;
-      gap: 30px;
-      align-items: center;
-    }
-    header img {
-      border-radius: 50%;
-      width: 120px;
-      height: 120px;
-      object-fit: cover;
-      border: 3px solid white;
-    }
-    .header-info {
-      display: flex;
-      flex-direction: column;
-    }
-    /* Rest of your existing CSS... */
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <header>
     <img src="head.jpg" alt="Long Li">
-    <div class="header-info">
+    <div>
       <h1>Long Li</h1>
       <p>Starting Research Positions, Inria Rennes</p>
-      <p>Email: <a href="mailto:long.li@inria.fr" style="color:white;">long.li@inria.fr</a></p>
+      <p>Email: <a href="mailto:long.li@inria.fr">long.li@inria.fr</a></p>
       <p>
-        <a href="https://github.com/matlong" style="color:white;"><i class="fab fa-github"></i> GitHub</a> | 
-        <a href="https://www.linkedin.com/in/long-li-b578a012b" style="color:white;"><i class="fab fa-linkedin"></i> LinkedIn</a> | 
-        <a href="https://orcid.org/0000-0002-7580-9280" style="color:white;"><i class="fab fa-orcid"></i> ORCID</a> |
-        <a href="cv.pdf" style="color:white;"><i class="fas fa-file-pdf"></i> CV</a>
+        <a href="https://github.com/matlong"><i class="fab fa-github"></i> GitHub</a> | 
+        <a href="https://www.linkedin.com/in/long-li-b578a012b"><i class="fab fa-linkedin"></i> LinkedIn</a> | 
+        <a href="https://orcid.org/0000-0002-7580-9280"><i class="fab fa-orcid"></i> ORCID</a> |
+        <a href="cv.pdf"><i class="fas fa-file-pdf"></i> CV</a>
       </p>
     </div>
   </header>
-
-  <!-- Simplified navigation (no duplicate quick links) -->
-  <nav>
+  <div class="mobile-menu" onclick="toggleMenu()">☰ Menu</div>
+  <nav id="navMenu">
     <a href="#research">Research</a>
-    <a href="#education">Education</a>
     <a href="#experience">Experience</a>
     <a href="#publications">Publications</a>
+    <a href="#education">Education</a>
     <a href="#teaching">Teaching</a>
-    <a href="#talks">Presentations</a>
+    <a href="#presentations">Presentations</a>
   </nav>
-
   <main>
+    <aside>
+      <h3>Quick Links</h3>
+      <ul>
+        <li><a href="#research" class="active">Research</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#publications">Publications</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#teaching">Teaching</a></li>
+        <li><a href="#presentations">Presentations</a></li>
+      </ul>
+      
+      <h3>Skills</h3>
+      <ul class="skills">
+        <li><strong>Programming:</strong> Python, Fortran, C/C++, Julia</li>
+        <li><strong>HPC:</strong> OpenMP, MPI, CUDA</li>
+        <li><strong>Languages:</strong> Chinese (Native), English/French (Fluent)</li>
+      </ul>
+    </aside>
     <section>
-      <!-- Your existing content sections here -->
       <h2 id="research">Research Interests</h2>
-      <p>Stochastic Modeling, Uncertainty Quantification, Data Assimilation, Ensemble Forecasting, Numerical Methods, Scientific Computing, Geophysical Fluid Dynamics, Turbulence</p>
+      <p>I develop <strong>stochastic methods</strong> for geophysical fluid dynamics with applications to:</p>
+      <ul>
+        <li>Uncertainty quantification in ocean-atmosphere systems</li>
+        <li>Data assimilation and ensemble forecasting</li>
+        <li>GPU-accelerated numerical solvers for stochastic PDEs</li>
+        <li>Wave-current interactions and boundary layer turbulence</li>
+      </ul>
+
+      <h2 id="experience">Research Experience</h2>
+      <h3>Inria Rennes (2021–Present)</h3>
+      <ul>
+        <li><strong>STUOD Project (ERC):</strong> Developed stochastic parameterizations for subgrid-scale ocean processes</li>
+        <li><strong>MEDIATION Program:</strong> Created GPU-portable solvers for stochastic geophysical fluid dynamics</li>
+        <li>Supervised 2 PhD students and 1 Master's intern</li>
+      </ul>
+      
+      <h3>IRMAR Rennes (2017–2020)</h3>
+      <ul>
+        <li>PhD Thesis: "Stochastic modeling and numerical simulation of ocean dynamics"</li>
+        <li>Developed stochastic large-scale ocean models for uncertainty quantification</li>
+      </ul>
+
+      <h2 id="publications">Selected Publications</h2>
+      <div class="publication">
+        <h3>2025</h3>
+        <ul>
+          <li>Li, L., et al. (2025). A generalized stochastic formulation of the Ekman-Stokes model. <em>J. Phys. Oceanogr.</em> <a href="https://doi.org/10.1175/JPO-D-24-0116.1">DOI</a></li>
+          <li>Tucciarone, F., Li, L., et al. (2025). Stochastic large-scale hydrostatic primitive model. <em>JAMES</em> <a href="https://doi.org/10.1029/2024MS004783">DOI</a></li>
+        </ul>
+        
+        <h3>2024</h3>
+        <ul>
+          <li>Thiry, L., Li, L., et al. (2024). Unified formulation of quasi-geostrophic equations. <em>JAMES</em> <a href="https://doi.org/10.1029/2024MS004510">DOI</a></li>
+        </ul>
+        
+        <p><a href="cv.pdf">View full publication list (15+ journal articles, 10+ book chapters)</a></p>
+      </div>
 
       <h2 id="education">Education</h2>
       <ul>
-        <li>PhD in Applied Mathematics, Université de Rennes I, France (2017–2020)</li>
-        <li>Master in Applied Mathematics, Université Grenoble Alpes, France (2015–2017)</li>
-        <li>Bachelor in Mathematics, Université Jean Monnet Saint Etienne, France (2012–2015)</li>
+        <li><strong>PhD in Applied Mathematics</strong>, Université de Rennes I (2017–2020)</li>
+        <li><strong>MSc in Applied Mathematics</strong>, Université Grenoble Alpes (2015–2017)</li>
+        <li><strong>BSc in Mathematics</strong>, Université Jean Monnet (2012–2015)</li>
       </ul>
 
-      <!-- Rest of your existing sections... -->
+      <h2 id="teaching">Teaching & Supervision</h2>
+      <h3>PhD Supervision</h3>
+      <ul>
+        <li>Francesco Tucciarone (2021–2024): Stochastic parametrization of ocean models</li>
+      </ul>
+      
+      <h3>Master's Supervision</h3>
+      <ul>
+        <li>Antoine Guines (2024): Numerical study of stochastic ocean models</li>
+      </ul>
+
+      <h2 id="presentations">Recent Presentations</h2>
+      <ul>
+        <li><strong>2025</strong>: Stochastic modeling in geophysical fluid dynamics - INRIA Paris</li>
+        <li><strong>2024</strong>: Stochastic Ekman-Stokes model - Ifremer, France</li>
+        <li><strong>2024</strong>: Invited Seminar - Shandong University, China</li>
+      </ul>
+      <p><a href="cv.pdf">View complete presentation list (15+ invited talks)</a></p>
     </section>
   </main>
-
   <footer>
-    <p>&copy; 2025 Long Li | Last updated: August 2025</p>
+    <p>
+      <a href="https://github.com/matlong"><i class="fab fa-github"></i></a>
+      <a href="https://www.linkedin.com/in/long-li-b578a012b"><i class="fab fa-linkedin"></i></a>
+      <a href="https://orcid.org/0000-0002-7580-9280"><i class="fab fa-orcid"></i></a>
+      <a href="mailto:long.li@inria.fr"><i class="fas fa-envelope"></i></a>
+    </p>
+    <p>Centre Inria de l'Université de Rennes | &copy; 2025 Long Li</p>
   </footer>
+  <button id="backToTop" title="Go to top">↑</button>
+
+  <script>
+    // Back to Top Button
+    window.onscroll = function() {
+      if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+        document.getElementById("backToTop").style.display = "block";
+      } else {
+        document.getElementById("backToTop").style.display = "none";
+      }
+    };
+    document.getElementById("backToTop").onclick = function() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    };
+
+    // Mobile Menu Toggle
+    function toggleMenu() {
+      const nav = document.getElementById("navMenu");
+      nav.classList.toggle("active");
+    }
+
+    // Highlight active section in sidebar
+    const links = document.querySelectorAll("aside a");
+    window.addEventListener("scroll", () => {
+      let current = "";
+      document.querySelectorAll("section h2").forEach((section) => {
+        const sectionTop = section.offsetTop;
+        if (pageYOffset >= sectionTop - 100) {
+          current = section.getAttribute("id");
+        }
+      });
+      links.forEach((link) => {
+        link.classList.remove("active");
+        if (link.getAttribute("href") === `#${current}`) {
+          link.classList.add("active");
+        }
+      });
+    });
+  </script>
 </body>
 </html>
