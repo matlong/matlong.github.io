@@ -247,9 +247,17 @@ footer a:hover {
   font-style: normal;
   font-weight: 500;
 }
+/*
 .references .journal {
   font-style: italic;  
   font-weight: 500;
+}
+*/
+.references .journal,
+.references .journal > *,
+.references [class*="journal"] {
+  font-style: italic !important;
+  font-family: inherit;
 }
 .references .volume {
   font-weight: bold;
