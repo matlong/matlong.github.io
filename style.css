@@ -221,6 +221,7 @@ footer a:hover {
 .references {
   list-style: none;
   padding: 0;
+  text-align: justify;
 }
 .references li {
   margin-bottom: 1.2em;
@@ -243,10 +244,24 @@ footer a:hover {
   font-weight: 700; /* Extra bold for your name */
 }
 .references .title {
-  font-style: italic;
+  font-style: normal;
+  font-weight: 500;
 }
 .references .journal {
+  font-style: italic;  
   font-weight: 500;
+}
+.references .volume {
+  font-weight: bold;
+}
+.references .pages {
+  font-variant-numeric: lining-nums;
+}
+.references .pages::before {
+  content: ", ";
+}
+.references .year::before {
+  content: ", ";
 }
 .references .links a {
   color: #0066cc;
