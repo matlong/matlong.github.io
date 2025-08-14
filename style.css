@@ -301,3 +301,51 @@ footer a:hover {
 .references .publisher {
   font-weight: 500;
 }
+
+/* Presentations section */
+.presentations {
+  margin-top: 2em;
+}
+
+.presentation-list {
+  list-style: none;
+  padding-left: 1.5em;
+}
+
+.presentation-list li {
+  margin-bottom: 1.5em;
+  position: relative;
+  line-height: 1.6;
+}
+
+.presentation-list li::before {
+  content: "▹";
+  position: absolute;
+  left: -1.5em;
+  color: #003366;
+}
+
+.presentation-authors {
+  font-weight: 600;
+  color: #003366;
+}
+
+.presentation-title {
+  font-style: italic;
+}
+
+.presentation-event {
+  font-weight: 500;
+}
+
+.presentation-links a {
+  color: #0066cc;
+  text-decoration: none;
+  margin-right: 0.5em;
+}
+
+.presentation-links a:hover {
+  text-decoration: underline;
+}
+
+
