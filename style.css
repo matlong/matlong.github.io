@@ -302,34 +302,12 @@ footer a:hover {
 }
 
 /* Book chapter specific styling */
-.references li .book,
-.references li em.book,
-.references li i.book,
-.references li span[class*="book"] {
-  font-style: italic !important;
-  font-family: inherit !important;
+.references .book {
+  font-style: italic;
 }
-.references li .book * {
-  font-style: italic !important;
-  all: unset;
-  font-style: italic !important;
-  font-family: inherit !important;
+.references .book-title {
+  font-style: italic;
 }
-
-.references li .book-title,
-.references li em.book-title,
-.references li i.book-title,
-.references li span[class*="book-title"] {
-  font-style: italic !important;
-  font-family: inherit !important;
-}
-.references li .book-title * {
-  font-style: italic !important;
-  all: unset;
-  font-style: italic !important;
-  font-family: inherit !important;
-}
-
 .references .series {
   font-style: normal;
 }
