@@ -248,21 +248,8 @@ footer a:hover {
   font-style: normal;
   font-weight: 500;
 }
-/* Force italics for journal names - multiple selector approach */
-.references li .journal,
-.references li em.journal,
-.references li i.journal,
-.references li span[class*="journal"] {
-  font-style: italic !important;
-  font-family: inherit !important;
-}
-
-/* Reset any potential inheritance issues */
-.references li .journal * {
-  font-style: italic !important;
-  all: unset;
-  font-style: italic !important;
-  font-family: inherit !important;
+.references .journal {
+  font-style: italic;
 }
 .references .volume {
   font-weight: bold;
