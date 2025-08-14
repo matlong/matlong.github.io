@@ -300,3 +300,17 @@ footer a:hover {
     margin-top: 0.3em;
   }
 }
+
+/* Book chapter specific styling */
+.references .book {
+  font-style: italic;
+}
+.references .book-title {
+  font-style: italic;
+}
+.references .series {
+  font-style: normal;
+}
+.references .publisher {
+  font-weight: 500;
+}
