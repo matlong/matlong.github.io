@@ -408,3 +408,33 @@ footer a:hover {
     margin-top: 0.2em;
   }
 }
+
+/* Student entry styling */
+.student-meta {
+  display: block;
+  color: #555;
+  font-size: 0.9em;
+  margin: 0.3em 0 0.3em 1em;
+  line-height: 1.4;
+}
+
+.student-current {
+  font-style: italic;
+  color: #006600; /* Green for current position */
+}
+
+.student-thesis {
+  display: block;
+  margin-left: 1em;
+}
+
+.student-thesis em {
+  font-style: italic;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .student-meta {
+    margin-left: 0;
+  }
+}
