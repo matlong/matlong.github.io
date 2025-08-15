@@ -348,4 +348,63 @@ footer a:hover {
   text-decoration: underline;
 }
 
+/* Students Section */
+#students {
+  margin-top: 2.5em;
+}
 
+.supervision-category {
+  margin-bottom: 2em;
+}
+
+.student-list {
+  list-style: none;
+  padding-left: 1em;
+}
+
+.student-list li {
+  margin-bottom: 1.2em;
+  position: relative;
+}
+
+.student-name {
+  font-weight: 600;
+  color: #003366;
+}
+
+.student-period {
+  color: #666;
+  font-size: 0.9em;
+  margin-left: 0.5em;
+}
+
+.student-details {
+  margin-top: 0.3em;
+  margin-left: 1em;
+}
+
+.student-topic {
+  font-style: italic;
+}
+
+.student-links {
+  margin-left: 0.8em;
+}
+
+.student-links a {
+  color: #0066cc;
+  text-decoration: none;
+}
+
+.student-links a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .student-period {
+    display: block;
+    margin-left: 0;
+    margin-top: 0.2em;
+  }
+}
