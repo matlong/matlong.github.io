@@ -528,3 +528,117 @@ footer a:hover {
     margin-left: 0;
   }
 }
+
+/* Experience Section */
+#experience {
+  margin-top: 2.5em;
+}
+
+.experience-list {
+  list-style: none;
+  padding-left: 0;
+}
+
+.position {
+  margin-bottom: 2em;
+  position: relative;
+  padding-left: 1.5em;
+}
+
+.position::before {
+  content: "▹";
+  position: absolute;
+  left: 0;
+  color: #003366;
+}
+
+.position-header {
+  font-weight: 600;
+  margin-bottom: 0.3em;
+  line-height: 1.4;
+}
+
+.position-date {
+  color: #003366;
+  margin-right: 0.5em;
+}
+
+.position-title {
+  font-weight: 500;
+}
+
+.position-institution {
+  font-style: italic;
+}
+
+.position-details {
+  margin-left: 1.5em;
+}
+
+.research-topic {
+  margin: 0.5em 0;
+}
+
+.research-topic em {
+  font-style: italic;
+}
+
+.keywords {
+  font-size: 0.9em;
+  color: #555;
+  margin-top: 0.5em;
+}
+
+.project-affiliation {
+  margin: 0.5em 0;
+}
+
+.contributions {
+  margin-top: 0.8em;
+}
+
+.contribution-list {
+  margin: 0.5em 0 0 1em;
+  padding-left: 1em;
+}
+
+.contribution-list li {
+  margin-bottom: 0.4em;
+  position: relative;
+}
+
+.contribution-list li::before {
+  content: "–";
+  position: absolute;
+  left: -1em;
+}
+
+/* Links */
+.advisor-link, .project-link {
+  color: #0066cc;
+  text-decoration: none;
+}
+
+.advisor-link:hover, .project-link:hover {
+  text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .position {
+    padding-left: 1.2em;
+  }
+
+  .position-header {
+    display: block;
+  }
+
+  .position-date {
+    display: block;
+    margin-bottom: 0.3em;
+  }
+
+  .position-details {
+    margin-left: 0;
+  }
+}
