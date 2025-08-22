@@ -127,6 +127,369 @@ section h2 {
   font-size: 1.5em;
 }
 
+/* **************** */
+/* Research Section */
+/* **************** */
+
+#research {
+  margin: 2.5em 0;
+}
+
+.research-content {
+  line-height: 1.6;
+}
+
+.research-content p {
+  margin-bottom: 1.5em;
+  text-align: justify;
+  font-size: 1.05em;
+}
+
+.research-interests {
+  margin-top: 1.5em;
+  font-size: 1em;
+}
+
+.research-interests strong {
+  color: #003366;
+  margin-right: 0.5em;
+}
+
+.interest {
+  color: #003366;
+  font-weight: 500;
+}
+
+.interest-separator {
+  color: #666;
+  margin: 0 0.3em;
+  font-weight: normal;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .research-content p {
+    text-align: left;
+    font-size: 1em;
+  }
+  
+  .research-interests {
+    font-size: 0.95em;
+  }
+  
+  .interest-separator {
+    margin: 0 0.2em;
+  }
+}
+
+/* ****************** */
+/* Experience Section */
+/* ****************** */
+
+#experience {
+  margin-top: 2.5em;
+}
+
+.experience-list {
+  list-style: none;
+  padding-left: 0;
+}
+
+.position {
+  margin-bottom: 2em;
+  position: relative;
+  padding-left: 1.5em;
+}
+
+.position::before {
+  content: "▹";
+  position: absolute;
+  left: 0;
+  color: #003366;
+}
+
+.position-header {
+  font-weight: 600;
+  margin-bottom: 0.3em;
+  line-height: 1.4;
+}
+
+.position-date {
+  color: #003366;
+  margin-right: 0.5em;
+}
+
+.position-title {
+  font-weight: 500;
+}
+
+.position-institution {
+  font-style: italic;
+}
+
+.position-details {
+  margin-left: 1.5em;
+}
+
+.research-topic {
+  margin: 0.5em 0;
+}
+
+.research-topic em {
+  font-style: italic;
+}
+
+.keywords {
+  font-size: 0.9em;
+  color: #555;
+  margin-top: 0.5em;
+}
+
+.project-affiliation {
+  margin: 0.5em 0;
+}
+
+.contributions {
+  margin-top: 0.8em;
+}
+
+.contribution-list {
+  margin: 0.5em 0 0 1em;
+  padding-left: 1em;
+}
+
+.contribution-list li {
+  margin-bottom: 0.4em;
+  position: relative;
+}
+
+.contribution-list li::before {
+  content: "–";
+  position: absolute;
+  left: -1em;
+}
+
+/* Links */
+.advisor-link, .project-link {
+  color: #0066cc;
+  text-decoration: none;
+}
+
+.advisor-link:hover, .project-link:hover {
+  text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .position {
+    padding-left: 1.2em;
+  }
+
+  .position-header {
+    display: block;
+  }
+
+  .position-date {
+    display: block;
+    margin-bottom: 0.3em;
+  }
+
+  .position-details {
+    margin-left: 0;
+  }
+}
+
+/* ************** */
+/* Education List */
+/* ************** */
+
+.education-list {
+  list-style: none;
+  padding-left: 0;
+  margin-top: 1.5em;
+}
+
+.education-list li {
+  margin-bottom: 1.8em;
+  position: relative;
+  padding-left: 1.5em;
+}
+
+.education-list li::before {
+  content: "▹";
+  position: absolute;
+  left: 0;
+  color: #003366;
+}
+
+.education-item {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+}
+
+.education-years {
+  font-weight: 600;
+  color: #003366;
+  margin-right: 0.5em;
+}
+
+.education-degree {
+  font-weight: 500;
+}
+
+.education-institution {
+  font-style: italic;
+}
+
+.thesis-info {
+  width: 100%;
+  margin-top: 0.4em;
+  margin-left: 0.5em;
+  line-height: 1.5;
+}
+
+.thesis-link {
+  color: #0066cc;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.thesis-link:hover {
+  text-decoration: underline;
+}
+
+.thesis-title {
+  font-style: italic;
+}
+
+.advisor-link {
+  color: #0066cc;
+  text-decoration: none;
+}
+
+.advisor-link:hover {
+  text-decoration: underline;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .education-list li {
+    padding-left: 1.2em;
+  }
+
+  .education-item {
+    display: block;
+  }
+
+  .education-years {
+    display: block;
+    margin-bottom: 0.3em;
+  }
+
+  .thesis-info {
+    margin-left: 0;
+  }
+}
+
+/* **************** */
+/* Students Section */
+/* **************** */
+
+#students {
+  margin-top: 2.5em;
+}
+
+.supervision-category {
+  margin-bottom: 2em;
+}
+
+.student-list {
+  list-style: none;
+  padding-left: 1em;
+}
+
+.student-list li {
+  margin-bottom: 1.2em;
+  position: relative;
+}
+
+.student-name {
+  font-weight: 600;
+  color: #003366;
+}
+
+.student-period {
+  color: #666;
+  font-size: 0.9em;
+  margin-left: 0.5em;
+}
+
+.student-details {
+  margin-top: 0.3em;
+  margin-left: 1em;
+}
+
+.student-topic {
+  font-style: italic;
+}
+
+.student-links {
+  margin-left: 0.8em;
+}
+
+.student-links a {
+  color: #0066cc;
+  text-decoration: none;
+}
+
+.student-links a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .student-period {
+    display: block;
+    margin-left: 0;
+    margin-top: 0.2em;
+  }
+}
+
+/* Student entry styling */
+.student-meta {
+  display: block;
+  color: #555;
+  font-size: 0.9em;
+  margin: 0.3em 0 0.3em 1em;
+  line-height: 1.4;
+}
+
+.student-current {
+  font-style: italic;
+  color: #006600; /* Green for current position */
+}
+
+.student-thesis {
+  display: block;
+  margin-left: 1em;
+}
+
+.student-thesis em {
+  font-style: italic;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .student-meta {
+    margin-left: 0;
+  }
+}
+
+/* ******************* */
+/* Publication Section */
+/* ******************* */
+
 .publication {
   margin-bottom: 15px;
 }
@@ -302,7 +665,10 @@ footer a:hover {
   font-weight: 500;
 }
 
+/* ********************* */
 /* Presentations section */
+/* ********************* */
+
 .presentations {
   margin-top: 2em;
 }
@@ -348,297 +714,3 @@ footer a:hover {
   text-decoration: underline;
 }
 
-/* Students Section */
-#students {
-  margin-top: 2.5em;
-}
-
-.supervision-category {
-  margin-bottom: 2em;
-}
-
-.student-list {
-  list-style: none;
-  padding-left: 1em;
-}
-
-.student-list li {
-  margin-bottom: 1.2em;
-  position: relative;
-}
-
-.student-name {
-  font-weight: 600;
-  color: #003366;
-}
-
-.student-period {
-  color: #666;
-  font-size: 0.9em;
-  margin-left: 0.5em;
-}
-
-.student-details {
-  margin-top: 0.3em;
-  margin-left: 1em;
-}
-
-.student-topic {
-  font-style: italic;
-}
-
-.student-links {
-  margin-left: 0.8em;
-}
-
-.student-links a {
-  color: #0066cc;
-  text-decoration: none;
-}
-
-.student-links a:hover {
-  text-decoration: underline;
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-  .student-period {
-    display: block;
-    margin-left: 0;
-    margin-top: 0.2em;
-  }
-}
-
-/* Student entry styling */
-.student-meta {
-  display: block;
-  color: #555;
-  font-size: 0.9em;
-  margin: 0.3em 0 0.3em 1em;
-  line-height: 1.4;
-}
-
-.student-current {
-  font-style: italic;
-  color: #006600; /* Green for current position */
-}
-
-.student-thesis {
-  display: block;
-  margin-left: 1em;
-}
-
-.student-thesis em {
-  font-style: italic;
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-  .student-meta {
-    margin-left: 0;
-  }
-}
-
-/* Education List */
-.education-list {
-  list-style: none;
-  padding-left: 0;
-  margin-top: 1.5em;
-}
-
-.education-list li {
-  margin-bottom: 1.8em;
-  position: relative;
-  padding-left: 1.5em;
-}
-
-.education-list li::before {
-  content: "▹";
-  position: absolute;
-  left: 0;
-  color: #003366;
-}
-
-.education-item {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: baseline;
-}
-
-.education-years {
-  font-weight: 600;
-  color: #003366;
-  margin-right: 0.5em;
-}
-
-.education-degree {
-  font-weight: 500;
-}
-
-.education-institution {
-  font-style: italic;
-}
-
-.thesis-info {
-  width: 100%;
-  margin-top: 0.4em;
-  margin-left: 0.5em;
-  line-height: 1.5;
-}
-
-.thesis-link {
-  color: #0066cc;
-  text-decoration: none;
-  font-weight: 500;
-}
-
-.thesis-link:hover {
-  text-decoration: underline;
-}
-
-.thesis-title {
-  font-style: italic;
-}
-
-.advisor-link {
-  color: #0066cc;
-  text-decoration: none;
-}
-
-.advisor-link:hover {
-  text-decoration: underline;
-}
-
-/* Mobile Responsiveness */
-@media (max-width: 768px) {
-  .education-list li {
-    padding-left: 1.2em;
-  }
-
-  .education-item {
-    display: block;
-  }
-
-  .education-years {
-    display: block;
-    margin-bottom: 0.3em;
-  }
-
-  .thesis-info {
-    margin-left: 0;
-  }
-}
-
-/* Experience Section */
-#experience {
-  margin-top: 2.5em;
-}
-
-.experience-list {
-  list-style: none;
-  padding-left: 0;
-}
-
-.position {
-  margin-bottom: 2em;
-  position: relative;
-  padding-left: 1.5em;
-}
-
-.position::before {
-  content: "▹";
-  position: absolute;
-  left: 0;
-  color: #003366;
-}
-
-.position-header {
-  font-weight: 600;
-  margin-bottom: 0.3em;
-  line-height: 1.4;
-}
-
-.position-date {
-  color: #003366;
-  margin-right: 0.5em;
-}
-
-.position-title {
-  font-weight: 500;
-}
-
-.position-institution {
-  font-style: italic;
-}
-
-.position-details {
-  margin-left: 1.5em;
-}
-
-.research-topic {
-  margin: 0.5em 0;
-}
-
-.research-topic em {
-  font-style: italic;
-}
-
-.keywords {
-  font-size: 0.9em;
-  color: #555;
-  margin-top: 0.5em;
-}
-
-.project-affiliation {
-  margin: 0.5em 0;
-}
-
-.contributions {
-  margin-top: 0.8em;
-}
-
-.contribution-list {
-  margin: 0.5em 0 0 1em;
-  padding-left: 1em;
-}
-
-.contribution-list li {
-  margin-bottom: 0.4em;
-  position: relative;
-}
-
-.contribution-list li::before {
-  content: "–";
-  position: absolute;
-  left: -1em;
-}
-
-/* Links */
-.advisor-link, .project-link {
-  color: #0066cc;
-  text-decoration: none;
-}
-
-.advisor-link:hover, .project-link:hover {
-  text-decoration: underline;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-  .position {
-    padding-left: 1.2em;
-  }
-
-  .position-header {
-    display: block;
-  }
-
-  .position-date {
-    display: block;
-    margin-bottom: 0.3em;
-  }
-
-  .position-details {
-    margin-left: 0;
-  }
-}
