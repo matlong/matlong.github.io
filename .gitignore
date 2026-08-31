@@ -1,0 +1,30 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Jupyter
+.ipynb_checkpoints/
+
+# macOS
+.DS_Store
+
+# Editors
+.vscode/
+.idea/
+*~
+*.swp
+
+# Logs and temporary files
+*.log
+*.tmp
+*.bak
+
+# Local environments
+.venv/
+venv/
+env/
+.env
+
+# Docs
+pdf/CV_loli.pdf
