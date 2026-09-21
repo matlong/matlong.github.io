@@ -1,882 +1,1131 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Long Li's Homepage</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', Arial, sans-serif;
-      color: #333;
-      line-height: 1.6;
-    }
-    header {
-      background: #003366;
-      color: white;
-      padding: 30px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      position: relative;
-      min-height: 180px;
-    }
-    .header-content {
-      max-width: 70%;
-    }
-    .profile-photo {
-      position: absolute;
-      right: 30px;
-      top: 50%;
-      transform: translateY(-50%);
-      width: 150px;
-      height: 150px;
-      border-radius: 50%;
-      border: 5px solid white;
-      object-fit: cover;
-      box-shadow: 0 3px 10px rgba(0,0,0,0.2);
-    }
-    header h1 {
-      margin: 0 0 10px 0;
-      font-size: 2.2em;
-    }
-    header p {
-      margin: 8px 0;
-    }
-    header a {
-      color: white;
-      text-decoration: none;
-      transition: opacity 0.3s;
-    }
-    header a:hover {
-      opacity: 0.9;
-      text-decoration: underline;
-    }
-    nav {
-      background: #f8f8f8;
-      padding: 15px;
-      position: sticky;
-      top: 0;
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-      z-index: 100;
-    }
-    nav a {
-      margin: 0 15px;
-      text-decoration: none;
-      color: #003366;
-      font-weight: bold;
-      transition: color 0.3s;
-    }
-    nav a:hover {
-      color: #0066cc;
-    }
-    main {
-      max-width: 1000px;
-      margin: 40px auto;
-      padding: 0 30px;
-    }
-    section h2 {
-      color: #003366;
-      border-bottom: 2px solid #ddd;
-      padding-bottom: 8px;
-      margin-top: 40px;
-    }
-    footer {
-      background: #003366;
-      color: white;
-      text-align: center;
-      padding: 25px;
-      margin-top: 50px;
-    }
-    @media (max-width: 768px) {
-      header {
-        flex-direction: column;
-        text-align: center;
-        padding-bottom: 100px;
-      }
-      .header-content {
-        max-width: 100%;
-      }
-      .profile-photo {
-        position: relative;
-        right: auto;
-        top: auto;
-        transform: none;
-        margin: 20px auto 0;
-      }
-      nav {
-        flex-direction: column;
-        align-items: center;
-      }
-      nav a {
-        margin: 5px 0;
-      }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Long Li — Applied Mathematician</title>
+<meta name="description" content="Long Li, CNRS postdoctoral researcher at INPHYNI (Nice). Stochastic modeling, uncertainty quantification and numerical methods for geophysical fluid dynamics.">
+<meta name="author" content="Long Li">
+<link rel="icon" href="image/head.jpg">
+
+<meta property="og:type" content="profile">
+<meta property="og:title" content="Long Li — Applied Mathematician">
+<meta property="og:description" content="Stochastic modeling, uncertainty quantification and numerical methods for geophysical fluid dynamics.">
+<meta property="og:url" content="https://matlong.github.io/">
+<meta property="og:image" content="https://matlong.github.io/image/web/bqg.jpg">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Long Li",
+  "url": "https://matlong.github.io/",
+  "email": "mailto:long.li@inria.fr",
+  "jobTitle": "CNRS Postdoctoral Researcher",
+  "affiliation": {"@type": "Organization", "name": "Institut de Physique de Nice (INPHYNI)"},
+  "alumniOf": [
+    {"@type": "CollegeOrUniversity", "name": "Université de Rennes I"},
+    {"@type": "CollegeOrUniversity", "name": "Université Grenoble Alpes"}
+  ],
+  "knowsAbout": ["Stochastic modeling", "Uncertainty quantification", "Data assimilation", "Numerical methods", "Geophysical fluid dynamics"],
+  "sameAs": [
+    "https://scholar.google.com/citations?user=Q6q5wfIAAAAJ",
+    "https://orcid.org/0000-0002-7580-9280",
+    "https://github.com/matlong",
+    "https://www.linkedin.com/in/long-li-b578a012b"
+  ]
+}
+</script>
+
+<style>
+/* ============================ tokens ============================ */
+:root{
+  --bg:#ffffff;
+  --surface:#f6f8fa;
+  --surface-2:#eef2f6;
+  --border:#dfe5ec;
+  --text:#16202c;
+  --muted:#5b6b7c;
+  --accent:#0b4f8a;
+  --accent-soft:#e7f0f9;
+  --warm:#a63a2b;
+  --warm-soft:#fbeeeb;
+  --shadow:0 1px 2px rgba(16,32,48,.06), 0 8px 24px rgba(16,32,48,.06);
+  --shadow-lg:0 2px 4px rgba(16,32,48,.06), 0 18px 44px rgba(16,32,48,.12);
+  --radius:14px;
+  --maxw:1120px;
+  --serif:"Newsreader", Georgia, "Times New Roman", serif;
+  --sans:"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0d1218;
+    --surface:#141c25;
+    --surface-2:#1b2530;
+    --border:#263341;
+    --text:#e4ecf4;
+    --muted:#9aadc0;
+    --accent:#6fb3ea;
+    --accent-soft:#16283a;
+    --warm:#e08a78;
+    --warm-soft:#2e1f1c;
+    --shadow:0 1px 2px rgba(0,0,0,.4), 0 8px 24px rgba(0,0,0,.35);
+    --shadow-lg:0 2px 4px rgba(0,0,0,.4), 0 18px 44px rgba(0,0,0,.5);
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0d1218;
+  --surface:#141c25;
+  --surface-2:#1b2530;
+  --border:#263341;
+  --text:#e4ecf4;
+  --muted:#9aadc0;
+  --accent:#6fb3ea;
+  --accent-soft:#16283a;
+  --warm:#e08a78;
+  --warm-soft:#2e1f1c;
+  --shadow:0 1px 2px rgba(0,0,0,.4), 0 8px 24px rgba(0,0,0,.35);
+  --shadow-lg:0 2px 4px rgba(0,0,0,.4), 0 18px 44px rgba(0,0,0,.5);
+}
+
+/* ============================ base ============================ */
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth; scroll-padding-top:76px; -webkit-text-size-adjust:100%}
+body{
+  margin:0; background:var(--bg); color:var(--text);
+  font-family:var(--sans); font-size:16px; line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+}
+a{color:var(--accent); text-decoration:none}
+a:hover{text-decoration:underline; text-underline-offset:2px}
+img{max-width:100%; display:block}
+h1,h2,h3{font-family:var(--serif); font-weight:600; line-height:1.2; letter-spacing:-.01em}
+.wrap{max-width:var(--maxw); margin:0 auto; padding:0 24px}
+
+/* ============================ hero ============================ */
+.hero{
+  background:linear-gradient(180deg, var(--surface) 0%, var(--bg) 100%);
+  border-bottom:1px solid var(--border);
+  padding:44px 0 38px;
+}
+.hero-grid{
+  display:grid;
+  grid-template-columns:auto minmax(0,1fr) auto;
+  gap:36px;
+  align-items:center;
+}
+.portrait{
+  width:150px; height:150px; border-radius:50%;
+  object-fit:cover;
+  border:4px solid var(--bg);
+  box-shadow:var(--shadow-lg);
+  outline:1px solid var(--border);
+}
+.identity h1{
+  margin:0 0 4px; font-size:clamp(2.1rem,4.2vw,2.9rem);
+}
+.role{
+  margin:0 0 2px; font-size:1.06rem; color:var(--text); font-weight:600;
+}
+.affil{
+  margin:0 0 18px; color:var(--muted); font-size:.97rem; max-width:52ch;
+}
+.affil a{color:var(--muted); text-decoration:underline; text-decoration-color:var(--border); text-underline-offset:3px}
+.affil a:hover{color:var(--accent)}
+.linkbar{display:flex; flex-wrap:wrap; gap:8px; margin:0}
+.chip{
+  display:inline-flex; align-items:center; gap:7px;
+  padding:7px 13px; border-radius:999px;
+  background:var(--bg); border:1px solid var(--border);
+  color:var(--text); font-size:.875rem; font-weight:500;
+  box-shadow:var(--shadow); transition:.18s ease;
+}
+.chip:hover{text-decoration:none; border-color:var(--accent); color:var(--accent); transform:translateY(-1px)}
+.chip svg{width:15px; height:15px; fill:currentColor; flex:none}
+
+/* research figure stack */
+.figstack{display:flex; flex-direction:column; gap:10px; width:176px}
+.figcard{
+  position:relative; display:block; overflow:hidden; margin:0;
+  border-radius:9px; border:1px solid var(--border);
+  background:var(--surface-2); box-shadow:var(--shadow);
+  transition:.2s ease;
+}
+.figcard:hover{transform:translateY(-2px); box-shadow:var(--shadow-lg); border-color:var(--accent)}
+.figcard img{width:100%; height:92px; object-fit:cover; object-position:center; display:block}
+.figcard.wide img{object-position:18% center}
+.figcard figcaption{
+  padding:6px 9px 7px;
+  font-size:.66rem; line-height:1.3; color:var(--muted);
+  border-top:1px solid var(--border); background:var(--bg);
+}
+.figcard figcaption b{display:block; color:var(--text); font-weight:600; font-size:.71rem; letter-spacing:.005em}
+
+/* ============================ nav ============================ */
+.nav{
+  position:sticky; top:env(safe-area-inset-top, 0px); z-index:50;
+  background:color-mix(in srgb, var(--bg) 88%, transparent);
+  backdrop-filter:saturate(1.6) blur(10px);
+  -webkit-backdrop-filter:saturate(1.6) blur(10px);
+  border-bottom:1px solid var(--border);
+}
+.nav-inner{
+  max-width:var(--maxw); margin:0 auto; padding:0 24px;
+  display:flex; align-items:center; gap:4px;
+  overflow-x:auto; scrollbar-width:none;
+}
+.nav-inner::-webkit-scrollbar{display:none}
+.nav a{
+  padding:14px 13px; font-size:.9rem; font-weight:500;
+  color:var(--muted); white-space:nowrap;
+  border-bottom:2px solid transparent; transition:.15s;
+}
+.nav a:hover{color:var(--text); text-decoration:none}
+.nav a.active{color:var(--accent); border-bottom-color:var(--accent)}
+.nav .spacer{flex:1 1 auto; min-width:12px}
+.themebtn{
+  flex:none; margin-left:4px;
+  width:34px; height:34px; border-radius:9px;
+  display:grid; place-items:center; cursor:pointer;
+  background:transparent; border:1px solid var(--border); color:var(--muted);
+}
+.themebtn:hover{color:var(--accent); border-color:var(--accent)}
+.themebtn svg{width:16px; height:16px; fill:currentColor}
+
+/* ============================ sections ============================ */
+main{padding-bottom:72px}
+section{padding-top:52px}
+.sec-head{
+  display:flex; align-items:baseline; gap:12px;
+  margin:0 0 22px; padding-bottom:10px;
+  border-bottom:1px solid var(--border);
+}
+.sec-head h2{margin:0; font-size:1.6rem}
+.sec-head .count{
+  font-size:.78rem; color:var(--muted); font-family:var(--sans);
+  background:var(--surface); border:1px solid var(--border);
+  padding:2px 9px; border-radius:999px;
+}
+.lead{font-size:1.02rem; color:var(--text); max-width:72ch; margin:0 0 20px}
+
+/* interests */
+.tags{display:flex; flex-wrap:wrap; gap:8px; margin-top:6px}
+.tag{
+  font-size:.82rem; padding:5px 12px; border-radius:7px;
+  background:var(--accent-soft); color:var(--accent);
+  border:1px solid color-mix(in srgb, var(--accent) 22%, transparent);
+  font-weight:500;
+}
+
+/* timeline */
+.timeline{list-style:none; margin:0; padding:0 0 0 22px; border-left:2px solid var(--border)}
+.timeline > li{position:relative; padding:0 0 26px 22px}
+.timeline > li:last-child{padding-bottom:4px}
+.timeline > li::before{
+  content:""; position:absolute; left:-30px; top:9px;
+  width:11px; height:11px; border-radius:50%;
+  background:var(--bg); border:2.5px solid var(--accent);
+}
+.when{
+  display:inline-block; font-size:.76rem; font-weight:600; letter-spacing:.03em;
+  color:var(--muted); text-transform:uppercase; margin-bottom:3px;
+}
+.what{font-size:1.02rem; font-weight:600; margin:0 0 1px}
+.where{color:var(--muted); font-size:.93rem; margin:0 0 7px}
+.detail{font-size:.93rem; margin:0 0 5px}
+.kw{font-size:.85rem; color:var(--muted); margin:6px 0 0}
+.kw b{color:var(--text); font-weight:600}
+
+/* cards */
+.card{
+  background:var(--surface); border:1px solid var(--border);
+  border-radius:var(--radius); padding:18px 20px; margin-bottom:14px;
+}
+.card h3{margin:0 0 4px; font-size:1.04rem}
+.card .where{margin-bottom:6px}
+
+/* publications */
+.filters{display:flex; flex-wrap:wrap; gap:8px; margin:0 0 22px}
+.filters button{
+  font:inherit; font-size:.85rem; font-weight:500; cursor:pointer;
+  padding:6px 14px; border-radius:999px;
+  background:var(--bg); color:var(--muted);
+  border:1px solid var(--border); transition:.15s;
+}
+.filters button:hover{color:var(--text); border-color:var(--muted)}
+.filters button[aria-pressed="true"]{
+  background:var(--accent); border-color:var(--accent); color:#fff;
+}
+:root[data-theme="dark"] .filters button[aria-pressed="true"],
+.pubgroup h3{}
+.pubgroup{margin-bottom:30px}
+.pubgroup h3{
+  font-size:.82rem; font-family:var(--sans); font-weight:700;
+  letter-spacing:.09em; text-transform:uppercase; color:var(--muted);
+  margin:0 0 12px;
+}
+.reflist{list-style:none; margin:0; padding:0}
+.reflist > li{
+  display:grid; grid-template-columns:58px minmax(0,1fr); gap:18px;
+  padding:16px 0; border-top:1px solid var(--border);
+}
+.reflist > li:last-child{border-bottom:1px solid var(--border)}
+.yr{
+  font-family:var(--serif); font-size:1.02rem; font-weight:600;
+  color:var(--muted); padding-top:1px;
+}
+.ref-title{display:block; font-weight:600; font-size:1rem; margin-bottom:3px}
+.ref-authors{display:block; font-size:.9rem; color:var(--muted); margin-bottom:3px}
+.ref-authors b{color:var(--text)}
+.ref-venue{display:block; font-size:.9rem; color:var(--muted); margin-bottom:8px}
+.ref-venue em{color:var(--text); font-style:italic}
+.links{display:flex; flex-wrap:wrap; gap:6px}
+.links a{
+  font-size:.76rem; font-weight:600; letter-spacing:.02em;
+  padding:3px 10px; border-radius:6px;
+  background:var(--surface); border:1px solid var(--border); color:var(--muted);
+  transition:.15s;
+}
+.links a:hover{text-decoration:none; color:var(--accent); border-color:var(--accent); background:var(--accent-soft)}
+
+/* talks */
+.talklist{list-style:none; margin:0; padding:0}
+.talklist > li{
+  display:grid; grid-template-columns:96px minmax(0,1fr); gap:18px;
+  padding:14px 0; border-top:1px solid var(--border);
+}
+.talklist > li:last-child{border-bottom:1px solid var(--border)}
+.tdate{font-size:.83rem; color:var(--muted); font-weight:500; padding-top:2px}
+.ttitle{display:block; font-weight:600; font-size:.97rem; margin-bottom:2px}
+.tevent{display:block; font-size:.89rem; color:var(--muted); margin-bottom:6px}
+
+details.more{margin-top:14px}
+details.more > summary{
+  cursor:pointer; list-style:none; display:inline-flex; align-items:center; gap:7px;
+  font-size:.86rem; font-weight:600; color:var(--accent);
+  padding:7px 14px; border:1px solid var(--border); border-radius:999px;
+  background:var(--surface);
+}
+details.more > summary::-webkit-details-marker{display:none}
+details.more > summary:hover{border-color:var(--accent)}
+details.more[open] > summary{margin-bottom:6px}
+details.more > summary .caret{transition:.2s}
+details.more[open] > summary .caret{transform:rotate(180deg)}
+
+/* footer */
+footer{
+  border-top:1px solid var(--border); background:var(--surface);
+  padding:28px 0; margin-top:40px;
+}
+.foot{
+  display:flex; flex-wrap:wrap; gap:12px; justify-content:space-between;
+  align-items:center; font-size:.85rem; color:var(--muted);
+}
+
+/* ============================ responsive ============================ */
+@media (max-width:980px){
+  .hero-grid{grid-template-columns:auto minmax(0,1fr); gap:28px}
+  .figstack{
+    grid-column:1 / -1; flex-direction:row; width:100%;
+  }
+  .figstack .figcard{flex:1 1 0; min-width:0}
+  .figcard img{height:104px}
+}
+@media (max-width:640px){
+  .hero{padding:36px 0 30px}
+  .hero-grid{grid-template-columns:1fr; gap:22px; text-align:left}
+  .portrait{width:120px; height:120px}
+  .figstack{flex-direction:column; gap:10px}
+  .figstack .figcard{flex:0 0 auto}
+  .figcard img{height:120px}
+  .reflist > li, .talklist > li{grid-template-columns:1fr; gap:6px}
+  .yr{font-size:.86rem; font-family:var(--sans); font-weight:600}
+  .tdate{font-size:.8rem}
+  .timeline{padding-left:16px}
+  .timeline > li{padding-left:18px}
+  .timeline > li::before{left:-24px}
+}
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto}
+  *{transition:none !important}
+}
+@media print{
+  .nav,.figstack,.filters,.themebtn{display:none}
+  body{font-size:11pt}
+  .hero{background:none; padding:0}
+}
+</style>
 </head>
 <body>
-  <header>
-    <div class="header-content">
+
+<!-- ====================== HERO ====================== -->
+<header class="hero" id="top">
+  <div class="wrap hero-grid">
+
+    <img class="portrait" src="image/photo.jpg" alt="Portrait of Long Li" width="150" height="150">
+
+    <div class="identity">
       <h1>Long Li</h1>
-      <p>Applied Mathematician</p>
-      <p>Email: <a href="mailto:long.li@inria.fr">long.li@inria.fr</a></p>
-      <p>
-        <a href="pdf/CV.pdf"><i class="fas fa-file-pdf"></i> CV</a> |
-        <a href="https://github.com/matlong"><i class="fab fa-github"></i> GitHub</a> | 
-        <a href="https://scholar.google.com/citations?hl=zh-CN&user=Q6q5wfIAAAAJ&view_op=list_works&gmla=AH8HC4xtBay4Exfl66a4dSPKRBjyDZ4I1CRzelHbbZweV3pAPpnGnloGA33CpF70quEqNPWj-tPQR45ltj8c9theOuUaQtmGDrM0o_t_ZJg"><i class="fas fa-graduation-cap"></i> Google Scholar</a> |        
-        <a href="https://orcid.org/0000-0002-7580-9280"><i class="fab fa-orcid"></i> ORCID</a> |
-        <a href="https://www.linkedin.com/in/long-li-b578a012b"><i class="fab fa-linkedin"></i> LinkedIn</a> 
+      <p class="role">Applied Mathematician</p>
+      <p class="affil">
+        CNRS Postdoctoral Researcher,
+        <a href="https://inphyni.univ-cotedazur.fr/" target="_blank" rel="noopener">Institut de Physique de Nice (INPHYNI)</a>
+        &amp; Centre Inria d'Université Côte d'Azur, France
+      </p>
+      <p class="linkbar">
+        <a class="chip" href="mailto:long.li@inria.fr">
+          <svg viewBox="0 0 24 24"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4.2-8 4.8-8-4.8V6l8 4.8L20 6z"/></svg>
+          long.li@inria.fr
+        </a>
+        <a class="chip" href="pdf/CV.pdf" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8zm-1 7V3.5L18.5 9zM8 13h8v1.6H8zm0 3.4h8V18H8z"/></svg>
+          CV
+        </a>
+        <a class="chip" href="https://scholar.google.com/citations?user=Q6q5wfIAAAAJ" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24"><path d="M12 2 1 8l11 6 9-4.9V16h2V8zM4 13.4V17c0 2.2 3.6 4 8 4s8-1.8 8-4v-3.6l-8 4.4z"/></svg>
+          Google Scholar
+        </a>
+        <a class="chip" href="https://orcid.org/0000-0002-7580-9280" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zM8.2 17H6.7V9.3h1.5zm-.75-8.8a.93.93 0 1 1 0-1.87.93.93 0 0 1 0 1.87zM13.6 17h-3V9.3h3c2.4 0 3.9 1.7 3.9 3.85S16 17 13.6 17zm-.05-6.35h-1.4v5h1.4c1.7 0 2.5-1.1 2.5-2.5s-.85-2.5-2.5-2.5z"/></svg>
+          ORCID
+        </a>
+        <a class="chip" href="https://github.com/matlong" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24"><path d="M12 .5a12 12 0 0 0-3.8 23.4c.6.1.8-.26.8-.57v-2c-3.3.72-4-1.6-4-1.6-.55-1.4-1.34-1.77-1.34-1.77-1.1-.74.08-.73.08-.73 1.2.09 1.84 1.24 1.84 1.24 1.07 1.84 2.8 1.3 3.5 1 .1-.78.42-1.3.76-1.6-2.66-.3-5.46-1.33-5.46-5.93 0-1.3.47-2.38 1.24-3.22-.13-.3-.54-1.52.12-3.18 0 0 1-.32 3.3 1.23a11.4 11.4 0 0 1 6 0c2.28-1.55 3.28-1.23 3.28-1.23.66 1.66.25 2.88.13 3.18a4.65 4.65 0 0 1 1.23 3.22c0 4.61-2.8 5.62-5.48 5.92.43.37.81 1.1.81 2.22v3.29c0 .31.21.68.82.57A12 12 0 0 0 12 .5z"/></svg>
+          GitHub
+        </a>
+        <a class="chip" href="https://www.linkedin.com/in/long-li-b578a012b" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.64h.05c.53-.95 1.83-1.95 3.77-1.95 4.03 0 4.78 2.5 4.78 5.76V21h-4v-5.6c0-1.34-.03-3.07-1.9-3.07-1.9 0-2.2 1.46-2.2 2.97V21H9z"/></svg>
+          LinkedIn
+        </a>
       </p>
     </div>
-    <img src="image/photo.jpg" alt="Profile Photo" class="profile-photo">
-  </header>
 
-  <nav>
+    <div class="figstack" aria-label="Selected simulation outputs">
+      <figure class="figcard">
+        <img src="image/web/bqg.jpg" alt="Relative vorticity field of a baroclinic quasi-geostrophic turbulence simulation" loading="lazy">
+        <figcaption><b>Baroclinic QG turbulence</b>Stochastic eddy parameterization</figcaption>
+      </figure>
+      <figure class="figcard">
+        <img src="image/web/rsw.jpg" alt="Vorticity field of a rotating shallow-water double-gyre simulation" loading="lazy">
+        <figcaption><b>Rotating shallow water</b>Wind-driven double gyre</figcaption>
+      </figure>
+      <figure class="figcard wide">
+        <img src="image/web/qgna.jpg" alt="Surface vorticity of a North Atlantic quasi-geostrophic simulation" loading="lazy">
+        <figcaption><b>North Atlantic QG</b>Realistic-geometry solver</figcaption>
+      </figure>
+    </div>
+
+  </div>
+</header>
+
+<!-- ====================== NAV ====================== -->
+<nav class="nav" aria-label="Section navigation">
+  <div class="nav-inner">
     <a href="#research">Research</a>
     <a href="#experience">Experience</a>
     <a href="#education">Education</a>
     <a href="#students">Students</a>
     <a href="#publications">Publications</a>
-    <a href="#talks">Presentations</a>
-  </nav>
+    <a href="#talks">Talks</a>
+    <span class="spacer"></span>
+    <button class="themebtn" id="themebtn" type="button" aria-label="Switch colour theme" title="Switch colour theme">
+      <svg viewBox="0 0 24 24" id="themeicon"><path d="M12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm0-5h0v3h0zm0 17h0v3h0zM4.2 5.6 6.3 7.7 4.9 9.1 2.8 7zM17.7 16.3l2.1 2.1-1.4 1.4-2.1-2.1zM2 11h3v2H2zm17 0h3v2h-3zM4.2 18.4 2.8 17l2.1-2.1 1.4 1.4zM19.8 5.6 17.7 7.7l-1.4-1.4 2.1-2.1z"/></svg>
+    </button>
+  </div>
+</nav>
 
-  <main>
-    <section>
+<main class="wrap">
 
-      <h2 id="research">Research</h2>
-      <div class="research-content">
-        <p>
-          I am an applied mathematician specializing in stochastic modeling and uncertainty quantification. 
-          My research bridges theoretical mathematics and practical computation, focusing on methodological 
-          tools that combine rigorous theory, advanced numerical methods, high-performance computing, and 
-          physical interpretation. Since my PhD, I have concentrated on stochastic approaches to geophysical 
-          fluid dynamics, with a particular emphasis on the development of reliable ensemble forecasting systems.
+  <!-- ====================== RESEARCH ====================== -->
+  <section id="research">
+    <div class="sec-head"><h2>Research</h2></div>
+    <p class="lead">
+      I am an applied mathematician specializing in stochastic modeling and uncertainty quantification.
+      My research bridges theoretical mathematics and practical computation, focusing on methodological tools
+      that combine rigorous theory, advanced numerical methods, high-performance computing, and physical
+      interpretation. Since my PhD, I have concentrated on stochastic approaches to geophysical fluid dynamics,
+      with a particular emphasis on the development of reliable ensemble forecasting systems.
+    </p>
+    <div class="tags">
+      <span class="tag">Stochastic Modeling</span>
+      <span class="tag">Uncertainty Quantification</span>
+      <span class="tag">Data Assimilation</span>
+      <span class="tag">Numerical Methods</span>
+      <span class="tag">Geophysical Fluid Dynamics</span>
+    </div>
+  </section>
+
+  <!-- ====================== EXPERIENCE ====================== -->
+  <section id="experience">
+    <div class="sec-head"><h2>Experience</h2></div>
+    <ul class="timeline">
+      <li>
+        <span class="when">Oct 2025 — present</span>
+        <p class="what">CNRS Postdoctoral Researcher</p>
+        <p class="where">Institut de Physique de Nice (INPHYNI), Centre Inria d'Université Côte d'Azur, France</p>
+        <p class="detail"><em>Scalar turbulence driven by multifractal random flows</em> — advised by
+          <a href="https://sthalabard.github.io" target="_blank" rel="noopener">Simon Thalabard</a>.</p>
+        <p class="kw"><b>Keywords:</b> Stochastic Physics · Turbulence · Intermittency · Gaussian Multiplicative Chaos</p>
+      </li>
+      <li>
+        <span class="when">Apr 2021 — Jul 2025</span>
+        <p class="what">Inria Starting Research Position (SRP)</p>
+        <p class="where">Centre Inria de l'Université de Rennes, France</p>
+        <p class="detail">
+          Part of the <a href="https://cordis.europa.eu/project/id/856408" target="_blank" rel="noopener">ERC-EU project</a>
+          <a href="https://www.imperial.ac.uk/ocean-dynamics-synergy" target="_blank" rel="noopener"><em>Stochastic Transport in Upper Ocean Dynamics (STUOD)</em></a>
+          — PIs: <a href="https://annuaire.ifremer.fr/cv/15870/" target="_blank" rel="noopener">B. Chapron</a>,
+          <a href="https://www.ma.imperial.ac.uk/~dcrisan/index.htm" target="_blank" rel="noopener">D. Crisan</a>,
+          <a href="https://www.ma.imperial.ac.uk/~dholm/" target="_blank" rel="noopener">D. Holm</a>,
+          <a href="https://www.irisa.fr/prive/memin/" target="_blank" rel="noopener">E. Mémin</a>.
         </p>
-        
-        <div class="research-interests">
-          <strong>Interests:</strong>
-          <span class="interest">Stochastic Modeling</span>
-          <span class="interest-separator">·</span>
-          <span class="interest">Uncertainty Quantification</span>
-          <span class="interest-separator">·</span>
-          <span class="interest">Data Assimilation</span>
-          <span class="interest-separator">·</span>
-          <span class="interest">Numerical Methods</span>
-          <span class="interest-separator">·</span>
-          <span class="interest">Geophysical Fluid Dynamics</span>
-        </div>
-      </div>
-        
-      <h2 id="experience">Experience</h2>
-      <ul class="experience-list">
-        
-        <li class="position">
-          <div class="position-header">
-            <span class="position-date">10/2025–:</span>
-            <span class="position-title"><b>CNRS Postdoctoral Researcher</b></span>,
-            <span class="position-institution">Institut de Physique de Nice (INPHYNI), Centre Inria d'Université Côte d'Azur, France</span>
-          </div>
-          <div class="position-details">
-            <div class="research-topic">
-              <em>Scalar turbulence driven by multifractal random flows</em>,
-              advised by <a href="https://sthalabard.github.io" class="advisor-link">Simon Thalabard</a>.
-            </div>
-            <div class="keywords">
-              <strong>Keywords:</strong> Stochastic Physics, Turbulence, Intermittency,  Gaussian Multiplicative Chaos.
-            </div>
-          </div>
-        </li>
-        
-        <li class="position">
-          <div class="position-header">
-            <span class="position-date">04/2021–07/2025:</span>
-            <b>Inria Starting Research Positions (SRP)</b>,
-            <span class="position-institution">Centre Inria de l'Université de Rennes, France</span>
-          </div>
-          <div class="position-details">
-            <div class="project-affiliation">
-                Part of the <a href="https://cordis.europa.eu/project/id/856408" class="project-link">ERC-EU Project</a> – <a href="https://www.imperial.ac.uk/ocean-dynamics-synergy" class="project-link"><em>Stochastic transport in upper ocean dynamics (STUOD)</em></a>
-                (PIs: <a href="https://annuaire.ifremer.fr/cv/15870/" class="advisor-link">B. Chapron</a>, <a href="https://www.ma.imperial.ac.uk/~dcrisan/index.htm" class="advisor-link">D. Crisan</a>, <a href="https://www.ma.imperial.ac.uk/~dholm/" class="advisor-link">D. Holm</a>, <a href="https://www.irisa.fr/prive/memin/" class="advisor-link">E. Mémin</a>)
-            </div>
-            <!--
-            <div class="contributions">
-              <strong>Contributions:</strong>
-              <ul class="contribution-list">
-                <li><i>Stochastic modeling of air-sea coupling and wave-current interactions</i></li>
-                <li><i>Data-driven parameterization of subgrid-scale ocean processes</i></li>
-                <li><i>Development of GPU-portable solvers for stochastic fluid dynamics</i></li>
-              </ul>
-            </div>
-            -->
-            <div class="keywords">
-              <strong>Keywords:</strong> Stochastic PDE, Subgrid-Scale Modeling, Data-Driven Parameterization, Boundary-Layer Turbulence, Air–Sea Interactions.
-            </div>
-          </div>
-        </li>        
-      </ul>
+        <p class="kw"><b>Keywords:</b> Stochastic PDE · Subgrid-Scale Modeling · Data-Driven Parameterization · Boundary-Layer Turbulence · Air–Sea Interactions</p>
+      </li>
+    </ul>
+  </section>
 
-      <h2 id="education">Education</h2>  
-      <ul class="education-list">
+  <!-- ====================== EDUCATION ====================== -->
+  <section id="education">
+    <div class="sec-head"><h2>Education</h2></div>
+    <ul class="timeline">
+      <li>
+        <span class="when">2017 — 2020</span>
+        <p class="what">PhD in Mathematics and its Interactions</p>
+        <p class="where">Université de Rennes I, France</p>
+        <p class="detail">
+          <em>Stochastic modeling and numerical simulation of ocean dynamics</em> — advised by
+          <a href="https://www.irisa.fr/prive/memin/" target="_blank" rel="noopener">Etienne Mémin</a> and
+          <a href="https://www.surrey.ac.uk/people/werner-bauer" target="_blank" rel="noopener">Werner Bauer</a>.
+        </p>
+        <p class="links" style="margin-top:8px">
+          <a href="https://inria.hal.science/tel-03207741" target="_blank" rel="noopener">Thesis</a>
+        </p>
+      </li>
+      <li>
+        <span class="when">2015 — 2017</span>
+        <p class="what">Master in Mathematics and Applications</p>
+        <p class="where">Université Grenoble Alpes / Institut Polytechnique de Grenoble, France</p>
+        <p class="detail">
+          <em>Global sensitivity analysis for a parametrized diffusion process</em> — advised by
+          <a href="http://ljk.imag.fr/membres/Clementine.Prieur" target="_blank" rel="noopener">Clémentine Prieur</a> and
+          <a href="https://membres-ljk.imag.fr/Pierre.Etore" target="_blank" rel="noopener">Pierre Étoré</a>.
+        </p>
+        <p class="links" style="margin-top:8px">
+          <a href="pdf/Li2017MSc.pdf" target="_blank" rel="noopener">Thesis</a>
+        </p>
+      </li>
+      <li>
+        <span class="when">2012 — 2015</span>
+        <p class="what">Bachelor in Mathematics</p>
+        <p class="where">Université Jean Monnet Saint-Étienne, France</p>
+      </li>
+    </ul>
+  </section>
+
+  <!-- ====================== STUDENTS ====================== -->
+  <section id="students">
+    <div class="sec-head"><h2>Students</h2></div>
+
+    <div class="pubgroup">
+      <h3>PhD students</h3>
+      <div class="card">
+        <h3 style="font-family:var(--serif); font-size:1.04rem; letter-spacing:-.01em; text-transform:none; color:var(--text); font-weight:600">Francesco Tucciarone <span style="font-family:var(--sans); font-size:.8rem; font-weight:500; color:var(--muted)">(2021–2024)</span></h3>
+        <p class="where">Co-advised with Etienne Mémin (Inria) · defended 10 April 2024 · now Research Engineer at Inria</p>
+        <p class="detail"><em>Stochastic parametrization of ocean models through high-resolution observations.</em></p>
+        <p class="links" style="margin-top:8px">
+          <a href="https://theses.hal.science/tel-04693836v1/file/TUCCIARONE_Francesco.pdf" target="_blank" rel="noopener">Thesis</a>
+        </p>
+      </div>
+    </div>
+
+    <div class="pubgroup">
+      <h3>Master's students</h3>
+      <div class="card">
+        <h3 style="font-family:var(--serif); font-size:1.04rem; letter-spacing:-.01em; text-transform:none; color:var(--text); font-weight:600">Antoine Guines <span style="font-family:var(--sans); font-size:.8rem; font-weight:500; color:var(--muted)">(INSA Rouen, 2024)</span></h3>
+        <p class="where">Co-advised with Etienne Mémin (Inria)</p>
+        <p class="detail"><em>Numerical study of a stochastic ocean model in the Mediterranean configuration.</em></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====================== PUBLICATIONS ====================== -->
+  <section id="publications">
+    <div class="sec-head">
+      <h2>Publications</h2>
+      <span class="count" id="pubcount"></span>
+    </div>
+
+    <div class="filters" role="group" aria-label="Filter publications by type">
+      <button type="button" data-filter="all" aria-pressed="true">All</button>
+      <button type="button" data-filter="preprint" aria-pressed="false">Preprints</button>
+      <button type="button" data-filter="journal" aria-pressed="false">Journal articles</button>
+      <button type="button" data-filter="chapter" aria-pressed="false">Book chapters</button>
+    </div>
+
+    <div class="pubgroup" data-group="preprint">
+      <h3>Submitted preprints</h3>
+      <ul class="reflist">
         <li>
-          <div class="education-item">
-            <span class="education-years">2017–2020:</span>
-            <span class="education-degree"><b>PhD in Mathematics and its Interactions</b></span>,
-            <span class="education-institution">Université de Rennes I, France</span>
-            <div class="thesis-info">
-              <a href="https://inria.hal.science/tel-03207741" class="thesis-link">[PhD Thesis]</a>
-              <span class="thesis-title"><i>Stochastic modeling and numerical simulation of ocean dynamics</i></span>,
-              advised by 
-              <a href="https://www.irisa.fr/prive/memin/" class="advisor-link">Etienne Mémin</a> and 
-              <a href="https://www.surrey.ac.uk/people/werner-bauer" class="advisor-link">Werner Bauer</a>.
-            </div>
-          </div>
-        </li>
-        
-        <li>
-          <div class="education-item">
-            <span class="education-years">2015–2017:</span>
-            <span class="education-degree"><b>Master in Mathematics and Applications</b></span>,
-            <span class="education-institution">Université Grenoble Alpes, Institut Polytechnique de Grenoble, France</span>
-            <div class="thesis-info">
-              <a href="pdf/Li2017MSc.pdf" class="thesis-link">[MSc Thesis]</a>
-              <span class="thesis-title"><i>Global sensitivity analysis for a parametrized diffusion process</i></span>,
-              advised by 
-              <a href="http://ljk.imag.fr/membres/Clementine.Prieur" class="advisor-link">Clémentine Prieur</a> and 
-              <a href="https://membres-ljk.imag.fr/Pierre.Etore" class="advisor-link">Pierre Étoré</a>.
-            </div>
-          </div>
-        </li>
-        
-        <li>
-          <div class="education-item">
-            <span class="education-years">2012–2015:</span>
-            <span class="education-degree"><b>Bachelor in Mathematics</b></span>,
-            <span class="education-institution">Université Jean Monnet Saint Etienne, France</span>
+          <span class="yr">2026</span>
+          <div>
+            <span class="ref-title">Simulating passive scalar advection in rough Kraichnan flows</span>
+            <span class="ref-authors"><b>L. Li</b>, A. L. P. Considéra, S. Thalabard</span>
+            <span class="ref-venue"><em>arXiv preprint</em>, arXiv:2608.29321</span>
+            <span class="links">
+              <a href="http://arxiv.org/abs/2608.29321" target="_blank" rel="noopener">arXiv</a>
+              <a href="pdf/Li2026arxiv.pdf" target="_blank" rel="noopener">PDF</a>
+              <a href="https://github.com/matlong/kraichnan_scalar" target="_blank" rel="noopener">Code</a>
+              <a href="https://doi.org/10.5281/zenodo.22145071" target="_blank" rel="noopener">Data</a>
+            </span>
           </div>
         </li>
       </ul>
+    </div>
 
-      <h2 id="students">Students</h2>
-      <div class="student-category">
-        <h3>PhD Students</h3>
-        <ul class="student-list">
+    <div class="pubgroup" data-group="journal">
+      <h3>Journal articles</h3>
+      <ul class="reflist">
+        <li>
+          <span class="yr">2025</span>
+          <div>
+            <span class="ref-title">A generalized stochastic formulation of the Ekman–Stokes model with statistical analyses</span>
+            <span class="ref-authors"><b>L. Li</b>, E. Mémin, B. Chapron</span>
+            <span class="ref-venue"><em>J. Phys. Oceanogr.</em>, 55, 1389–1407</span>
+            <span class="links">
+              <a href="https://doi.org/10.1175/JPO-D-24-0116.1" target="_blank" rel="noopener">DOI</a>
+              <a href="pdf/Li2025jpo.pdf" target="_blank" rel="noopener">PDF</a>
+              <a href="https://github.com/matlong/SGESM" target="_blank" rel="noopener">Code</a>
+            </span>
+          </div>
+        </li>
+        <li>
+          <span class="yr">2025</span>
+          <div>
+            <span class="ref-title">Derivation and numerical assessment of a stochastic large-scale hydrostatic primitive model</span>
+            <span class="ref-authors">F. Tucciarone, <b>L. Li</b>, E. Mémin, P. Chandramouli</span>
+            <span class="ref-venue"><em>J. Adv. Model. Earth Syst.</em>, 17, e2024MS004783</span>
+            <span class="links">
+              <a href="https://doi.org/10.1029/2024MS004783" target="_blank" rel="noopener">DOI</a>
+              <a href="pdf/Tucciarone2025james.pdf" target="_blank" rel="noopener">PDF</a>
+              <a href="https://github.com/ftucciarone/LocationUncertainty/tree/JAMES-2024" target="_blank" rel="noopener">Code</a>
+              <a href="https://doi.org/10.5281/zenodo.15632926" target="_blank" rel="noopener">Data</a>
+            </span>
+          </div>
+        </li>
+        <li>
+          <span class="yr">2025</span>
+          <div>
+            <span class="ref-title">Link between stochastic grid perturbation and location uncertainty framework</span>
+            <span class="ref-authors">S. Clement, E. Blayo, L. Debreu, J.-M. Brankart, P. Brasseur, <b>L. Li</b>, E. Mémin</span>
+            <span class="ref-venue"><em>J. Adv. Model. Earth Syst.</em>, 17, e2024MS004528</span>
+            <span class="links">
+              <a href="https://doi.org/10.1029/2024MS004528" target="_blank" rel="noopener">DOI</a>
+              <a href="pdf/Clement2025james.pdf" target="_blank" rel="noopener">PDF</a>
+              <a href="https://archive.softwareheritage.org/browse/origin/directory/?origin_url=https://gricad-gitlab.univ-grenoble-alpes.fr/clemensi/qgm_sgp" target="_blank" rel="noopener">Code</a>
+              <a href="https://doi.org/10.5281/zenodo.11650897" target="_blank" rel="noopener">Data</a>
+            </span>
+          </div>
+        </li>
+        <li>
+          <span class="yr">2024</span>
+          <div>
+            <span class="ref-title">A unified formulation of quasi-geostrophic and shallow water equations via projection</span>
+            <span class="ref-authors">L. Thiry, <b>L. Li</b>, E. Mémin, G. Roullet</span>
+            <span class="ref-venue"><em>J. Adv. Model. Earth Syst.</em>, 16, e2024MS004510</span>
+            <span class="links">
+              <a href="https://doi.org/10.1029/2024MS004510" target="_blank" rel="noopener">DOI</a>
+              <a href="pdf/Thiry2024james.pdf" target="_blank" rel="noopener">PDF</a>
+              <a href="https://doi.org/10.5281/zenodo.13372736" target="_blank" rel="noopener">Code</a>
+            </span>
+          </div>
+        </li>
+        <li>
+          <span class="yr">2024</span>
+          <div>
+            <span class="ref-title">MQGeometry-1.0: a multi-layer quasi-geostrophic solver on non-rectangular geometries</span>
+            <span class="ref-authors">L. Thiry, <b>L. Li</b>, G. Roullet, E. Mémin</span>
+            <span class="ref-venue"><em>Geosci. Model Dev.</em>, 17, 1749–1764</span>
+            <span class="links">
+              <a href="https://gmd.copernicus.org/articles/17/1749/2024/" target="_blank" rel="noopener">DOI</a>
+              <a href="pdf/Thiry2024gmd.pdf" target="_blank" rel="noopener">PDF</a>
+              <a href="https://github.com/louity/MQGeometry" target="_blank" rel="noopener">Code</a>
+            </span>
+          </div>
+        </li>
+        <li>
+          <span class="yr">2023</span>
+          <div>
+            <span class="ref-title">Stochastic data-driven parameterization of unresolved eddy effects in a baroclinic quasi-geostrophic model</span>
+            <span class="ref-authors"><b>L. Li</b>, B. Deremble, N. Lahaye, E. Mémin</span>
+            <span class="ref-venue"><em>J. Adv. Model. Earth Syst.</em>, 15, e2022MS003297</span>
+            <span class="links">
+              <a href="https://doi.org/10.1029/2022MS003297" target="_blank" rel="noopener">DOI</a>
+              <a href="pdf/Li2023james.pdf" target="_blank" rel="noopener">PDF</a>
+              <a href="https://github.com/matlong/qgcm_lu" target="_blank" rel="noopener">Code</a>
+              <a href="https://doi.org/10.5281/zenodo.6818751" target="_blank" rel="noopener">Data</a>
+            </span>
+          </div>
+        </li>
+        <li>
+          <span class="yr">2021</span>
+          <div>
+            <span class="ref-title">Rotating shallow water flow under location uncertainty with a structure-preserving discretization</span>
+            <span class="ref-authors">R. Brecht, <b>L. Li</b>, W. Bauer, E. Mémin</span>
+            <span class="ref-venue"><em>J. Adv. Model. Earth Syst.</em>, 13, e2021MS002492</span>
+            <span class="links">
+              <a href="https://doi.org/10.1029/2021MS002492" target="_blank" rel="noopener">DOI</a>
+              <a href="pdf/Brecht2021james.pdf" target="_blank" rel="noopener">PDF</a>
+              <a href="https://github.com/RudigerBrecht/RSW-LU" target="_blank" rel="noopener">Code</a>
+              <a href="https://zenodo.org/record/5576233" target="_blank" rel="noopener">Data</a>
+            </span>
+          </div>
+        </li>
+        <li>
+          <span class="yr">2021</span>
+          <div>
+            <span class="ref-title">New trends in ensemble forecast strategy: uncertainty quantification for coarse-grid computational fluid dynamics</span>
+            <span class="ref-authors">V. Resseguier, <b>L. Li</b>, G. Jouan, P. Dérian, E. Mémin, B. Chapron</span>
+            <span class="ref-venue"><em>Arch. Computat. Methods Eng.</em>, 28, 215–261</span>
+            <span class="links">
+              <a href="https://doi.org/10.1007/s11831-020-09437-x" target="_blank" rel="noopener">DOI</a>
+              <a href="pdf/Resseguier2020acme.pdf" target="_blank" rel="noopener">PDF</a>
+              <a href="https://github.com/vressegu/sqgmu/tree/sqgmu2" target="_blank" rel="noopener">Code</a>
+            </span>
+          </div>
+        </li>
+        <li>
+          <span class="yr">2020</span>
+          <div>
+            <span class="ref-title">Stochastic representation of mesoscale eddy effects in coarse-resolution barotropic models</span>
+            <span class="ref-authors">W. Bauer, P. Chandramouli, <b>L. Li</b>, E. Mémin</span>
+            <span class="ref-venue"><em>Ocean Model.</em>, 151, 101646</span>
+            <span class="links">
+              <a href="https://doi.org/10.1016/j.ocemod.2020.101646" target="_blank" rel="noopener">DOI</a>
+              <a href="pdf/Bauer2020om.pdf" target="_blank" rel="noopener">PDF</a>
+            </span>
+          </div>
+        </li>
+        <li>
+          <span class="yr">2020</span>
+          <div>
+            <span class="ref-title">Deciphering the role of small-scale inhomogeneity on geophysical flow structuration: a stochastic approach</span>
+            <span class="ref-authors">W. Bauer, P. Chandramouli, B. Chapron, <b>L. Li</b>, E. Mémin</span>
+            <span class="ref-venue"><em>J. Phys. Oceanogr.</em>, 50, 983–1003</span>
+            <span class="links">
+              <a href="https://doi.org/10.1175/JPO-D-19-0164.1" target="_blank" rel="noopener">DOI</a>
+              <a href="pdf/Bauer2020jpo.pdf" target="_blank" rel="noopener">PDF</a>
+            </span>
+          </div>
+        </li>
+        <li>
+          <span class="yr">2020</span>
+          <div>
+            <span class="ref-title">Global sensitivity analysis for models described by stochastic differential equations</span>
+            <span class="ref-authors">P. Étoré, C. Prieur, D. K. Pham, <b>L. Li</b></span>
+            <span class="ref-venue"><em>Methodol. Comput. Appl. Probab.</em>, 22, 803–831</span>
+            <span class="links">
+              <a href="https://doi.org/10.1007/s11009-019-09732-6" target="_blank" rel="noopener">DOI</a>
+              <a href="pdf/Etore2020mcap.pdf" target="_blank" rel="noopener">PDF</a>
+            </span>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <div class="pubgroup" data-group="chapter">
+      <h3>Book chapters</h3>
+      <ul class="reflist">
+        <li>
+          <span class="yr">2026</span>
+          <div>
+            <span class="ref-title">A stochastic Ekman–Stokes model for coupled ocean–wave–atmosphere dynamics</span>
+            <span class="ref-authors"><b>L. Li</b>, E. Mémin, B. Chapron</span>
+            <span class="ref-venue">In: B. Chapron et al. (eds), <em>Stochastic Transport in Upper Ocean Dynamics IV</em>, Mathematics of Planet Earth 15, 105–131, Springer, Cham</span>
+            <span class="links">
+              <a href="https://doi.org/10.1007/978-3-032-12749-5_6" target="_blank" rel="noopener">DOI</a>
+              <a href="pdf/Li2026stuod.pdf" target="_blank" rel="noopener">PDF</a>
+              <a href="https://github.com/matlong/SCESM" target="_blank" rel="noopener">Code</a>
+            </span>
+          </div>
+        </li>
+        <li>
+          <span class="yr">2025</span>
+          <div>
+            <span class="ref-title">Transport noise defined from wavelet transform for model-based stochastic ocean models</span>
+            <span class="ref-authors">F. Tucciarone, <b>L. Li</b>, E. Mémin, L. Thiry</span>
+            <span class="ref-venue">In: B. Chapron et al. (eds), <em>Stochastic Transport in Upper Ocean Dynamics III</em>, Mathematics of Planet Earth 13, 287–303, Springer, Cham</span>
+            <span class="links">
+              <a href="https://doi.org/10.1007/978-3-031-70660-8_13" target="_blank" rel="noopener">DOI</a>
+              <a href="pdf/Tucciarone2025stuod.pdf" target="_blank" rel="noopener">PDF</a>
+            </span>
+          </div>
+        </li>
+        <li>
+          <span class="yr">2024</span>
+          <div>
+            <span class="ref-title">Linear wave solutions of a stochastic shallow water model</span>
+            <span class="ref-authors">E. Mémin, <b>L. Li</b>, N. Lahaye, G. Tissot, B. Chapron</span>
+            <span class="ref-venue">In: B. Chapron et al. (eds), <em>Stochastic Transport in Upper Ocean Dynamics II</em>, Mathematics of Planet Earth 11, 223–245, Springer, Cham</span>
+            <span class="links">
+              <a href="https://doi.org/10.1007/978-3-031-40094-0_10" target="_blank" rel="noopener">DOI</a>
+              <a href="pdf/Memin2024stuod.pdf" target="_blank" rel="noopener">PDF</a>
+              <a href="https://github.com/matlong/sw-wave-lu" target="_blank" rel="noopener">Code</a>
+            </span>
+          </div>
+        </li>
+        <li>
+          <span class="yr">2024</span>
+          <div>
+            <span class="ref-title">Data-driven stochastic primitive equations with dynamic mode decomposition</span>
+            <span class="ref-authors">F. Tucciarone, E. Mémin, <b>L. Li</b></span>
+            <span class="ref-venue">In: B. Chapron et al. (eds), <em>Stochastic Transport in Upper Ocean Dynamics II</em>, Mathematics of Planet Earth 11, 321–336, Springer, Cham</span>
+            <span class="links">
+              <a href="https://doi.org/10.1007/978-3-031-40094-0_15" target="_blank" rel="noopener">DOI</a>
+              <a href="pdf/Tucciarone2024stuod.pdf" target="_blank" rel="noopener">PDF</a>
+            </span>
+          </div>
+        </li>
+        <li>
+          <span class="yr">2024</span>
+          <div>
+            <span class="ref-title">Toward a stochastic parameterization for oceanic deep convection</span>
+            <span class="ref-authors">Q. Jamet, E. Mémin, F. Dumas, <b>L. Li</b>, P. Garreau</span>
+            <span class="ref-venue">In: B. Chapron et al. (eds), <em>Stochastic Transport in Upper Ocean Dynamics II</em>, Mathematics of Planet Earth 11, 143–157, Springer, Cham</span>
+            <span class="links">
+              <a href="https://doi.org/10.1007/978-3-031-40094-0_6" target="_blank" rel="noopener">DOI</a>
+              <a href="pdf/Jamet2024stuod.pdf" target="_blank" rel="noopener">PDF</a>
+            </span>
+          </div>
+        </li>
+        <li>
+          <span class="yr">2023</span>
+          <div>
+            <span class="ref-title">Stochastic parameterization with dynamic mode decomposition</span>
+            <span class="ref-authors"><b>L. Li</b>, E. Mémin, G. Tissot</span>
+            <span class="ref-venue">In: B. Chapron et al. (eds), <em>Stochastic Transport in Upper Ocean Dynamics</em>, Mathematics of Planet Earth 10, 179–193, Springer, Cham</span>
+            <span class="links">
+              <a href="https://doi.org/10.1007/978-3-031-18988-3_11" target="_blank" rel="noopener">DOI</a>
+              <a href="pdf/Li2023stuod.pdf" target="_blank" rel="noopener">PDF</a>
+              <a href="https://github.com/matlong/qgcm_lu/tree/DMD" target="_blank" rel="noopener">Code</a>
+            </span>
+          </div>
+        </li>
+        <li>
+          <span class="yr">2023</span>
+          <div>
+            <span class="ref-title">Modified (hyper-)viscosity for coarse-resolution ocean models</span>
+            <span class="ref-authors">L. Thiry, <b>L. Li</b>, E. Mémin</span>
+            <span class="ref-venue">In: B. Chapron et al. (eds), <em>Stochastic Transport in Upper Ocean Dynamics</em>, Mathematics of Planet Earth 10, 273–285, Springer, Cham</span>
+            <span class="links">
+              <a href="https://doi.org/10.1007/978-3-031-18988-3_17" target="_blank" rel="noopener">DOI</a>
+              <a href="pdf/Thiry2023stuod.pdf" target="_blank" rel="noopener">PDF</a>
+              <a href="https://github.com/louity/qgm_pytorch" target="_blank" rel="noopener">Code</a>
+            </span>
+          </div>
+        </li>
+        <li>
+          <span class="yr">2023</span>
+          <div>
+            <span class="ref-title">Primitive equations under location uncertainty: analytical description and model development</span>
+            <span class="ref-authors">F. Tucciarone, E. Mémin, <b>L. Li</b></span>
+            <span class="ref-venue">In: B. Chapron et al. (eds), <em>Stochastic Transport in Upper Ocean Dynamics</em>, Mathematics of Planet Earth 10, 287–300, Springer, Cham</span>
+            <span class="links">
+              <a href="https://doi.org/10.1007/978-3-031-18988-3_18" target="_blank" rel="noopener">DOI</a>
+              <a href="pdf/Tucciarone2023stuod.pdf" target="_blank" rel="noopener">PDF</a>
+            </span>
+          </div>
+        </li>
+        <li>
+          <span class="yr">2023</span>
+          <div>
+            <span class="ref-title">A two-step numerical scheme in time for surface quasi-geostrophic equations under location uncertainty</span>
+            <span class="ref-authors">C. Fiorini, P.-M. Boulvard, <b>L. Li</b>, E. Mémin</span>
+            <span class="ref-venue">In: B. Chapron et al. (eds), <em>Stochastic Transport in Upper Ocean Dynamics</em>, Mathematics of Planet Earth 10, 57–67, Springer, Cham</span>
+            <span class="links">
+              <a href="https://doi.org/10.1007/978-3-031-18988-3_5" target="_blank" rel="noopener">DOI</a>
+              <a href="pdf/Fiorini2023stuod.pdf" target="_blank" rel="noopener">PDF</a>
+            </span>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ====================== TALKS ====================== -->
+  <section id="talks">
+    <div class="sec-head"><h2>Presentations</h2></div>
+
+    <div class="pubgroup">
+      <h3>Conferences &amp; workshops</h3>
+      <ul class="talklist">
+        <li>
+          <span class="tdate">Jun 2026</span>
+          <div>
+            <span class="ttitle">Numerical study of passive scalar advection by turbulent random flows</span>
+            <span class="tevent">Journées des GDR « Mécanique des Fluides Géophysiques et Astrophysiques » et « Navier-Stokes 2.00 » · Toulouse, France</span>
+            <span class="links"><a href="https://inria.hal.science/hal-05659784/document" target="_blank" rel="noopener">Slides</a></span>
+          </div>
+        </li>
+        <li>
+          <span class="tdate">Sep 2025</span>
+          <div>
+            <span class="ttitle">Stochastic approaches to air–sea boundary layer dynamics</span>
+            <span class="tevent">6th STUOD Annual Workshop · ICMS, The Bayes Centre, Edinburgh, UK</span>
+            <span class="links"><a href="https://hal.science/hal-05279728v1/file/main.pdf" target="_blank" rel="noopener">Slides</a></span>
+          </div>
+        </li>
+        <li>
+          <span class="tdate">Oct 2024</span>
+          <div>
+            <span class="ttitle">A stochastic formulation of the Ekman–Stokes model</span>
+            <span class="tevent">Atelier sur la représentation des fines échelles océaniques dans les simulations numériques · Ifremer, Plouzané, France</span>
+            <span class="links"><a href="https://hal.science/hal-04957875v1/document" target="_blank" rel="noopener">Slides</a></span>
+          </div>
+        </li>
+        <li>
+          <span class="tdate">Sep 2024</span>
+          <div>
+            <span class="ttitle">A generalized stochastic formulation of the Ekman–Stokes model with statistical analyses</span>
+            <span class="tevent">5th STUOD Annual Workshop · Inria Rennes, France</span>
+            <span class="links"><a href="https://hal.science/hal-04957876v1/document" target="_blank" rel="noopener">Slides</a></span>
+          </div>
+        </li>
+        <li>
+          <span class="tdate">Sep 2023</span>
+          <div>
+            <span class="ttitle">Uncertainty quantification of mesoscale air–sea interaction under transport noise</span>
+            <span class="tevent">4th STUOD Annual Workshop · Ifremer, Plouzané, France</span>
+            <span class="links"><a href="https://hal.science/hal-04957884v1/document" target="_blank" rel="noopener">Slides</a></span>
+          </div>
+        </li>
+        <li>
+          <span class="tdate">Mar 2023</span>
+          <div>
+            <span class="ttitle">Linear wave solutions of a stochastic shallow water model</span>
+            <span class="tevent">22nd STUOD Sandbox Workshop · Online</span>
+            <span class="links"><a href="https://hal.science/hal-05141156v1/document" target="_blank" rel="noopener">Slides</a></span>
+          </div>
+        </li>
+        <li>
+          <span class="tdate">Sep 2022</span>
+          <div>
+            <span class="ttitle">Stochastic transport in an idealized ocean–atmosphere coupled model</span>
+            <span class="tevent">3rd STUOD Annual Workshop · Imperial College London, UK</span>
+            <span class="links"><a href="https://hal.science/hal-04957883v1/document" target="_blank" rel="noopener">Slides</a></span>
+          </div>
+        </li>
+        <li>
+          <span class="tdate">May 2022</span>
+          <div>
+            <span class="ttitle">Stochastic transport in an idealized ocean–atmosphere coupled system</span>
+            <span class="tevent">EGU General Assembly · Vienna, Austria</span>
+            <span class="links"><a href="https://hal.science/hal-03676056v1/document" target="_blank" rel="noopener">Slides</a></span>
+          </div>
+        </li>
+      </ul>
+
+      <details class="more">
+        <summary>
+          Earlier presentations (2019–2021)
+          <svg class="caret" viewBox="0 0 24 24" width="13" height="13" fill="currentColor"><path d="M12 15.5 5.5 9l1.4-1.4L12 12.7l5.1-5.1L18.5 9z"/></svg>
+        </summary>
+        <ul class="talklist">
           <li>
-            Francesco Tucciarone (2021–2024): Co-advised with Etienne Mémin (Inria), defended Apr. 10, 2024, now Research Engineer at Inria.
-            <div class="student-thesis">
-              <em>Stochastic parametrization of ocean models through high-resolution observations.</em>
-                [<a href="https://theses.hal.science/tel-04693836v1/file/TUCCIARONE_Francesco.pdf" target="_blank">Thesis</a>]
+            <span class="tdate">Nov 2021</span>
+            <div>
+              <span class="ttitle">Numerically modelling location uncertainty in geophysical fluid dynamics</span>
+              <span class="tevent">11th STUOD Sandbox Workshop · Online</span>
+              <span class="links"><a href="https://hal.science/hal-05141158v1/file/STUOD_11%20sandbox_L.Li.pdf" target="_blank" rel="noopener">Slides</a></span>
+            </div>
+          </li>
+          <li>
+            <span class="tdate">Sep 2021</span>
+            <div>
+              <span class="ttitle">Statistically data-driven modelling location uncertainty in mesoscale dynamics</span>
+              <span class="tevent">2nd STUOD Annual Workshop · Online</span>
+              <span class="links"><a href="https://hal.science/hal-03351970v1/file/Statistically%20data-diven%20modelling%20Location%20Uncertainty%20in%20mesoscale%20dynamics%20-%202nd%20Stochastic%20Trans.pdf" target="_blank" rel="noopener">Slides</a></span>
+            </div>
+          </li>
+          <li>
+            <span class="tdate">Apr 2021</span>
+            <div>
+              <span class="ttitle">Stochastic modeling of mesoscale eddies</span>
+              <span class="tevent">EGU General Assembly · Online</span>
+              <span class="links"><a href="https://hal.science/hal-03221416v1/document" target="_blank" rel="noopener">Slides</a></span>
+            </div>
+          </li>
+          <li>
+            <span class="tdate">Feb 2021</span>
+            <div>
+              <span class="ttitle">Stochastic modeling of the oceanic mesoscale eddies</span>
+              <span class="tevent">6th STUOD Sandbox Workshop · Online</span>
+              <span class="links"><a href="https://hal.science/hal-03140513v1/document" target="_blank" rel="noopener">Slides</a></span>
+            </div>
+          </li>
+          <li>
+            <span class="tdate">Sep 2020</span>
+            <div>
+              <span class="ttitle">Stochastic modeling of the oceanic mesoscale eddies</span>
+              <span class="tevent">1st STUOD Annual Workshop · Online</span>
+              <span class="links"><a href="https://hal.science/hal-02946702v1/document" target="_blank" rel="noopener">Slides</a></span>
+            </div>
+          </li>
+          <li>
+            <span class="tdate">Sep 2020</span>
+            <div>
+              <span class="ttitle">Rotating shallow water flow under location uncertainty</span>
+              <span class="tevent">3rd STUOD Sandbox Workshop · Online</span>
+              <span class="links"><a href="https://hal.science/hal-02946835v1/document" target="_blank" rel="noopener">Slides</a></span>
+            </div>
+          </li>
+          <li>
+            <span class="tdate">Sep 2019</span>
+            <div>
+              <span class="ttitle">Stochastic modeling of mesoscale eddies in oceanic dynamics</span>
+              <span class="tevent">Workshop on Frontiers of Uncertainty Quantification in Fluid Dynamics · Pisa, Italy</span>
+              <span class="links"><a href="https://hal.science/hal-02708167v1/document" target="_blank" rel="noopener">Slides</a></span>
+            </div>
+          </li>
+          <li>
+            <span class="tdate">Jul 2019</span>
+            <div>
+              <span class="ttitle">Stochastic modeling of mesoscale eddies in barotropic wind-driven circulation</span>
+              <span class="tevent">Workshop on Stochastic Parameterizations and Their Use in Data Assimilation · Imperial College London, UK</span>
+              <span class="links"><a href="https://hal.science/hal-02712112v1/document" target="_blank" rel="noopener">Poster</a></span>
+            </div>
+          </li>
+          <li>
+            <span class="tdate">Apr 2019</span>
+            <div>
+              <span class="ttitle">Oceanic dynamics under location uncertainty — towards a consistent stochastic modeling</span>
+              <span class="tevent">Workshop on Conservation Principles, Data and Uncertainty in Atmosphere–Ocean Modeling · Potsdam, Germany</span>
+              <span class="links"><a href="https://hal.science/hal-02708028v1/document" target="_blank" rel="noopener">Slides</a></span>
             </div>
           </li>
         </ul>
+      </details>
+    </div>
 
-        <h3>Master's Students</h3>
-        <ul class="student-list">
-          <li>
-            Antoine Guines (INSA Rouen, 2024): Co-advised with Etienne Mémin (Inria).
-            <div class="student-thesis">
-              <em>Numerical study of a stochastic ocean model in the Mediterranean configuration.</em>
-            </div>
-          </li>
-        </ul>
-      </div>
-      
-      <h2 id="publications">Publications</h2>
-      <div class="publication">
-        <h3>Submitted Preprint</h3>
-        <ul class="references">
-          <li>
-            <span class="authors"><b>L. Li</b>, A. L.P. Considéra, S. Thalabard.</span>
-            <span class="title">Simulating passive scalar advection in rough Kraichnan flows.</span>
-            <span class="journal"><i>arXiv preprint.</i></span>,
-            <span class="volume">arXiv:2608.29321</span>,
-            <span class="year">2026</span>.
-            <span class="links">
-              [<a href="http://arxiv.org/abs/2608.29321" target="_blank">URL</a>] 
-              [<a href="pdf/Li2026arxiv.pdf" target="_blank">PDF</a>] 
-              [<a href="https://github.com/matlong/kraichnan_scalar" target="_blank">Code</a>]
-              [<a href="https://doi.org/10.5281/zenodo.22145071" target="_blank">Data</a>]
-            </span>
-          </li>
-        </ul>
-         
-        <h3>Journal Articles</h3>
-        <ul class="references">
-          <li>
-            <span class="authors"><b>L. Li</b>, E. Mémin, B. Chapron.</span>
-            <span class="title">A generalized stochastic formulation of the Ekman-Stokes model with statistical analyses.</span>
-            <span class="journal"><i>J. Phys. Oceanogr.</i></span>,
-            <span class="volume">55</span>,
-            <span class="pages">1389–1407</span>,
-            <span class="year">2025</span>.
-            <span class="links">
-              [<a href="https://doi.org/10.1175/JPO-D-24-0116.1" target="_blank">DOI</a>] 
-              [<a href="pdf/Li2025jpo.pdf" target="_blank">PDF</a>] 
-              [<a href="https://github.com/matlong/SGESM" target="_blank">Code</a>]
-            </span>
-          </li>
-         
-          <li>
-            <span class="authors">F. Tucciarone, <b>L. Li</b>, E. Mémin, P. Chandramouli.</span>
-            <span class="title">Derivation and numerical assessment of a stochastic large-scale hydrostatic primitive model.</span>
-            <span class="journal"><i>J. Adv. Model. Earth Syst.</i></span>,
-            <span class="volume">17</span>,
-            <span class="pages">e2024MS004783</span>,
-            <span class="year">2025</span>.
-            <span class="links">
-              [<a href="https://doi.org/10.1029/2024MS004783" target="_blank">DOI</a>] 
-              [<a href="pdf/Tucciarone2025james.pdf" target="_blank">PDF</a>] 
-              [<a href="https://github.com/ftucciarone/LocationUncertainty/tree/JAMES-2024" target="_blank">Code</a>]
-              [<a href="https://doi.org/10.5281/zenodo.15632926" target="_blank">Data</a>] 
-            </span>
-          </li>
-          
-          <li>
-            <span class="authors">S. Clement, E. Blayo, L. Debreu, J.-M. Brankart, P. Brasseur, <b>L. Li</b>, E. Mémin.</span>
-            <span class="title">Link between stochastic grid perturbation and location uncertainty framework.</span>
-            <span class="journal"><i>J. Adv. Model. Earth Syst.</i></span>,
-            <span class="volume">17</span>,
-            <span class="pages">e2024MS004528</span>,
-            <span class="year">2025</span>.
-            <span class="links">
-              [<a href="https://doi.org/10.1029/2024MS004528" target="_blank">DOI</a>] 
-              [<a href="pdf/Clement2025james.pdf" target="_blank">PDF</a>] 
-              [<a href="https://archive.softwareheritage.org/browse/origin/directory/?origin_url=https://gricad-gitlab.univ-grenoble-alpes.fr/clemensi/qgm_sgp" target="_blank">Code</a>]
-              [<a href="https:// doi.org/10.5281/zenodo.11650897" target="_blank">Data</a>] 
-            </span>
-          </li>
-          
-          <li>
-            <span class="authors">L. Thiry, <b>L. Li</b>, E. Mémin, G. Roullet.</span>
-            <span class="title">A unified formulation of quasi-geostrophic and shallow water equations via projection.</span>
-            <span class="journal"><i>J. Adv. Model. Earth Syst.</i></span>,
-            <span class="volume">16</span>,
-            <span class="pages">e2024MS004510</span>,
-            <span class="year">2024</span>.
-            <span class="links">
-              [<a href="https://doi.org/10.1029/2024MS004510" target="_blank">DOI</a>] 
-              [<a href="pdf/Thiry2024james.pdf" target="_blank">PDF</a>] 
-              [<a href="https://doi.org/10.5281/zenodo.13372736" target="_blank">Code</a>]
-            </span>
-          </li>
-          
-          <li>
-            <span class="authors">L. Thiry, <b>L. Li</b>, G. Roullet, E. Mémin.</span>
-            <span class="title">MQGeometry-1.0: a multi-layer quasi-geostrophic solver on non-rectangular geometries.</span>
-            <span class="journal"><i>Geosci. Model Dev.</i></span>,
-            <span class="volume">17</span>,
-            <span class="pages">1749–1764</span>,
-            <span class="year">2024</span>.
-            <span class="links">
-              [<a href="https://gmd.copernicus.org/articles/17/1749/2024/" target="_blank">DOI</a>] 
-              [<a href="pdf/Thiry2024gmd.pdf" target="_blank">PDF</a>] 
-              [<a href="https://github.com/louity/MQGeometry" target="_blank">Code</a>]
-            </span>
-          </li>
+    <div class="pubgroup">
+      <h3>Invited seminars</h3>
+      <ul class="talklist">
+        <li>
+          <span class="tdate">Mar 2025</span>
+          <div>
+            <span class="ttitle">Stochastic modeling in geophysical fluid dynamics</span>
+            <span class="tevent">ANGE Project-Team · Inria Paris, France</span>
+            <span class="links"><a href="https://hal.science/hal-04978081v1/file/slides.pdf" target="_blank" rel="noopener">Slides</a></span>
+          </div>
+        </li>
+        <li>
+          <span class="tdate">Oct 2024</span>
+          <div>
+            <span class="ttitle">Stochastic modeling in geophysical fluid dynamics</span>
+            <span class="tevent">CALISTO Project-Team · Inria Sophia-Antipolis, France</span>
+            <span class="links"><a href="https://hal.science/hal-04957880v1/document" target="_blank" rel="noopener">Slides</a></span>
+          </div>
+        </li>
+        <li>
+          <span class="tdate">Sep 2024</span>
+          <div>
+            <span class="ttitle">Stochastic modeling in geophysical fluid dynamics</span>
+            <span class="tevent">Research Center for Mathematics and Interdisciplinary Sciences · Shandong University, Qingdao, China</span>
+            <span class="links"><a href="https://hal.science/hal-04957878v1/document" target="_blank" rel="noopener">Slides</a></span>
+          </div>
+        </li>
+        <li>
+          <span class="tdate">Nov 2022</span>
+          <div>
+            <span class="ttitle">Stochastic transport in an idealized ocean–atmosphere coupled model</span>
+            <span class="tevent">AIRSEA Project-Team · Inria Grenoble, France</span>
+            <span class="links"><a href="https://hal.science/hal-04957882v1/document" target="_blank" rel="noopener">Slides</a></span>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </section>
 
-          <li>
-            <span class="authors"><b>L. Li</b>, B. Deremble, N. Lahaye, E. Mémin.</span>
-            <span class="title">Stochastic data-driven parameterization of unresolved eddy effects in a baroclinic quasi-geostrophic model.</span>
-            <span class="journal"><i>J. Adv. Model. Earth Syst.</i></span>,
-            <span class="volume">15</span>,
-            <span class="pages">e2022MS003297</span>,
-            <span class="year">2023</span>.
-            <span class="links">
-              [<a href="https://doi.org/10.1029/2022MS003297" target="_blank">DOI</a>] 
-              [<a href="pdf/Li2023james.pdf" target="_blank">PDF</a>] 
-              [<a href="https://github.com/matlong/qgcm_lu" target="_blank">Code</a>]
-              [<a href="https://doi.org/10.5281/zenodo.6818751" target="_blank">Data</a>] 
-            </span>
-          </li>
+</main>
 
-          <li>
-            <span class="authors">R. Brecht, <b>L. Li</b>, W. Bauer, E. Mémin.</span>
-            <span class="title">Rotating shallow water flow under location uncertainty with a structure-preserving discretization.</span>
-            <span class="journal"><i>J. Adv. Model. Earth Syst.</i></span>,
-            <span class="volume">13</span>,
-            <span class="pages">e2021MS002492</span>,
-            <span class="year">2021</span>.
-            <span class="links">
-              [<a href="https://doi.org/10.1029/2021MS002492" target="_blank">DOI</a>] 
-              [<a href="pdf/Brecht2021james.pdf" target="_blank">PDF</a>] 
-              [<a href="https://github.com/RudigerBrecht/RSW-LU" target="_blank">Code</a>]
-              [<a href="https://zenodo.org/record/5576233" target="_blank">Data</a>] 
-            </span>
-          </li>
-          
-          <li>
-            <span class="authors">V. Resseguier, <b>L. Li</b>, G. Jouan, P. Dérian, E. Mémin, B. Chapron.</span>
-            <span class="title">New Trends in Ensemble Forecast Strategy: Uncertainty Quantification for Coarse-Grid Computational Fluid Dynamics.</span>
-            <span class="journal"><i>Arch. Computat. Methods. Eng.</i></span>,
-            <span class="volume">28</span>,
-            <span class="pages">215–261</span>,
-            <span class="year">2021</span>.
-            <span class="links">
-              [<a href="https://doi.org/10.1007/s11831-020-09437-x" target="_blank">DOI</a>] 
-              [<a href="pdf/Resseguier2020acme.pdf" target="_blank">PDF</a>] 
-              [<a href="https://github.com/vressegu/sqgmu/tree/sqgmu2" target="_blank">Code</a>]
-            </span>
-          </li>
-          
-          <li>
-            <span class="authors">W. Bauer, P. Chandramouli, <b>L. Li</b>, E. Mémin.</span>
-            <span class="title">Stochastic representation of mesoscale eddy effects in coarse-resolution barotropic models.</span>
-            <span class="journal"><i>Ocean Model.</i></span>,
-            <span class="volume">151</span>,
-            <span class="pages">101646</span>,
-            <span class="year">2020</span>.
-            <span class="links">
-              [<a href="https://doi.org/10.1016/j.ocemod.2020.101646" target="_blank">DOI</a>] 
-              [<a href="pdf/Bauer2020om.pdf" target="_blank">PDF</a>]
-            </span>
-          </li>
-          
-          <li>
-            <span class="authors">W. Bauer, P. Chandramouli, B. Chapron, <b>L. Li</b>, E. Mémin.</span>
-            <span class="title">Deciphering the role of small-scale inhomogeneity on geophysical flow structuration: a stochastic approach.</span>
-            <span class="journal"><i>J. Phys. Oceanogr.</i></span>,
-            <span class="volume">50</span>,
-            <span class="pages">983-1003</span>,
-            <span class="year">2020</span>.
-            <span class="links">
-              [<a href="https://doi.org/10.1175/JPO-D-19-0164.1" target="_blank">DOI</a>] 
-              [<a href="pdf/Bauer2020jpo.pdf" target="_blank">PDF</a>]
-            </span>
-          </li>
+<footer>
+  <div class="wrap foot">
+    <span>&copy; 2021–2026 Long Li</span>
+    <span>Last updated: September 2026 · <a href="#top">Back to top</a></span>
+  </div>
+</footer>
 
-          <li>
-            <span class="authors">É. Pierre, C. Prieur, D.K. Pham, <b>L. Li</b>.</span>
-            <span class="title">Global sensitivity analysis for models described by stochastic differential equations.</span>
-            <span class="journal"><i>Methodol. Comput. Appl. Probab.</i></span>,
-            <span class="volume">22</span>,
-            <span class="pages">803–831</span>,
-            <span class="year">2020</span>.
-            <span class="links">
-              [<a href="https://doi.org/10.1007/s11009-019-09732-6" target="_blank">DOI</a>] 
-              [<a href="pdf/Etore2020mcap.pdf" target="_blank">PDF</a>] 
-            </span>
-          </li> 
-          
-          <!-- Template:
-          <li>
-            <span class="authors"><b>L. Li</b>.</span>
-            <span class="title">.</span>
-            <span class="journal"><i></i></span>,
-            <span class="volume">55</span>,
-            <span class="pages">1389–1407</span>,
-            <span class="year">2025</span>.
-            <span class="links">
-              [ <a href="" target="_blank" rel="noopener">DOI</a> | 
-                <a href="pdf/.pdf" target="_blank">PDF</a> | 
-                <a href="" target="_blank" rel="noopener">Code</a> ]
-            </span>
-          </li>
-          -->
-        </ul>
+<script>
+(function(){
+  "use strict";
 
-        <h3>Book Chapters</h3>
-        <ul class="references">
-          <li>
-            <span class="authors"><b>L. Li</b>, E. Mémin, B. Chapron.</span>
-            <span class="title">A stochastic Ekman-Stokes model for coupled ocean-wave-atmosphere dynamics.</span>
-            <span class="book"><i>In: Chapron, B., et al. (eds)</i></span>
-            <span class="book-title"><i>Stochastic Transport in Upper Ocean Dynamics IV.</i></span>
-            <span class="series">Mathematics of Planet Earth, vol 15, pp 105-131.</span>
-            <span class="publisher">Springer, Cham,</span>
-            <span class="year">2026</span>.
-            <span class="links">
-              [<a href="https://doi.org/10.1007/978-3-032-12749-5_6" target="_blank">DOI</a>] 
-              [<a href="pdf/Li2026stuod.pdf" target="_blank">PDF</a>] 
-              [<a href="https://github.com/matlong/SCESM" target="_blank">Code</a>]
-            </span>
-          </li>
-          
-          <li>
-            <span class="authors">F. Tucciarone, <b>L. Li</b>, E. Mémin, L. Thiry.</span>
-            <span class="title"> Transport noise defined from wavelet transform for model-based stochastic ocean models.</span>
-            <span class="book"><i>In: Chapron et al. (eds)</i></span>
-            <span class="book-title"><i>Stochastic Transport in Upper Ocean Dynamics III.</i></span>
-            <span class="series">Mathematics of Planet Earth, vol 13, pp 287-303.</span>
-            <span class="publisher">Springer, Cham,</span>
-            <span class="year">2025</span>.
-            <span class="links">
-              [<a href="https://doi.org/10.1007/978-3-031-70660-8_13" target="_blank">DOI</a>] 
-              [<a href="pdf/Tucciarone2025stuod.pdf" target="_blank">PDF</a>] 
-            </span>
-          </li>
-          
-          <li>
-            <span class="authors">E. Mémin, <b>L. Li</b>, N. Lahaye, G. Tissot, B. Chapron.</span>
-            <span class="title">Linear wave solutions of a stochastic shallow water model.</span>
-            <span class="book"><i>In: Chapron et al. (eds)</i></span>
-            <span class="book-title"><i>Stochastic Transport in Upper Ocean Dynamics II.</i></span>
-            <span class="series">Mathematics of Planet Earth, vol 11, pp 223-245.</span>
-            <span class="publisher">Springer, Cham,</span>
-            <span class="year">2024</span>.
-            <span class="links">
-              [<a href="https://doi.org/10.1007/978-3-031-40094-0_10" target="_blank">DOI</a>] 
-              [<a href="pdf/Memin2024stuod.pdf" target="_blank">PDF</a>] 
-              [<a href="https://github.com/matlong/sw-wave-lu" target="_blank">Code</a>]
-            </span>
-          </li>
+  /* ---------- theme ---------- */
+  var root = document.documentElement, btn = document.getElementById("themebtn");
+  var SUN = "M12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10zM11 1h2v3h-2zm0 19h2v3h-2zM4.2 5.6 6.3 7.7 4.9 9.1 2.8 7zM17.7 16.3l2.1 2.1-1.4 1.4-2.1-2.1zM2 11h3v2H2zm17 0h3v2h-3zM4.2 18.4 2.8 17l2.1-2.1 1.4 1.4zM19.8 5.6 17.7 7.7l-1.4-1.4 2.1-2.1z";
+  var MOON = "M21.5 14.5A9.5 9.5 0 0 1 9.5 2.5a9.5 9.5 0 1 0 12 12z";
+  function store(k,v){ try{ localStorage.setItem(k,v);}catch(e){} }
+  function load(k){ try{ return localStorage.getItem(k);}catch(e){ return null; } }
+  function paint(){
+    var dark = root.getAttribute("data-theme") === "dark" ||
+      (!root.getAttribute("data-theme") && window.matchMedia("(prefers-color-scheme: dark)").matches);
+    var icon = document.getElementById("themeicon");
+    if (icon) icon.firstElementChild.setAttribute("d", dark ? SUN : MOON);
+  }
+  var saved = load("ll-theme");
+  if (saved === "dark" || saved === "light") root.setAttribute("data-theme", saved);
+  paint();
+  if (btn) btn.addEventListener("click", function(){
+    var dark = root.getAttribute("data-theme") === "dark" ||
+      (!root.getAttribute("data-theme") && window.matchMedia("(prefers-color-scheme: dark)").matches);
+    var next = dark ? "light" : "dark";
+    root.setAttribute("data-theme", next);
+    store("ll-theme", next);
+    paint();
+  });
 
-          <li>
-            <span class="authors">F. Tucciarone, E. Mémin, <b>L. Li</b>.</span>
-            <span class="title">Data driven stochastic primitive equations with dynamic modes decomposition.</span>
-            <span class="book"><i>In: Chapron et al. (eds)</i></span>
-            <span class="book-title"><i>Stochastic Transport in Upper Ocean Dynamics II.</i></span>
-            <span class="series">Mathematics of Planet Earth, vol 11, pp 321-336.</span>
-            <span class="publisher">Springer, Cham,</span>
-            <span class="year">2024</span>.
-            <span class="links">
-              [<a href="https://doi.org/10.1007/978-3-031-40094-0_15" target="_blank">DOI</a>] 
-              [<a href="pdf/Tucciarone2024stuod.pdf" target="_blank">PDF</a>] 
-            </span>
-          </li>
-          
-          <li>
-            <span class="authors">Q. Jamet, E. Mémin, F. Dumas, <b>L. Li</b>, P. Garreau.</span>
-            <span class="title">Toward a stochastic parameterization for oceanic deep convection.</span>
-            <span class="book"><i>In: Chapron et al. (eds)</i></span>
-            <span class="book-title"><i>Stochastic Transport in Upper Ocean Dynamics II.</i></span>
-            <span class="series">Mathematics of Planet Earth, vol 11, pp 143-157.</span>
-            <span class="publisher">Springer, Cham,</span>
-            <span class="year">2024</span>.
-            <span class="links">
-              [<a href="https://doi.org/10.1007/978-3-031-40094-0_6" target="_blank">DOI</a>] 
-              [<a href="pdf/Jamet2024stuod.pdf" target="_blank">PDF</a>] 
-            </span>
-          </li>
+  /* ---------- publication filter + count ---------- */
+  var groups = [].slice.call(document.querySelectorAll(".pubgroup[data-group]"));
+  var total = document.querySelectorAll("#publications .reflist > li").length;
+  var counter = document.getElementById("pubcount");
+  if (counter) counter.textContent = total + " items";
+  document.querySelectorAll(".filters button").forEach(function(b){
+    b.addEventListener("click", function(){
+      var f = b.dataset.filter;
+      document.querySelectorAll(".filters button").forEach(function(o){
+        o.setAttribute("aria-pressed", String(o === b));
+      });
+      var shown = 0;
+      groups.forEach(function(g){
+        var on = (f === "all" || g.dataset.group === f);
+        g.hidden = !on;
+        if (on) shown += g.querySelectorAll(".reflist > li").length;
+      });
+      if (counter) counter.textContent = shown + " items";
+    });
+  });
 
-          <li>
-            <span class="authors"><b>L. Li</b>, E. Mémin, G. Tissot.</span>
-            <span class="title">Stochastic parameterization with dynamic mode decomposition.</span>
-            <span class="book"><i>In: Chapron et al. (eds)</i></span>
-            <span class="book-title"><i>Stochastic Transport in Upper Ocean Dynamics.</i></span>
-            <span class="series">Mathematics of Planet Earth, vol 10, pp 179-193.</span>
-            <span class="publisher">Springer, Cham,</span>
-            <span class="year">2023</span>.
-            <span class="links">
-              [<a href="https://doi.org/10.1007/978-3-031-18988-3_11" target="_blank">DOI</a>] 
-              [<a href="pdf/Li2023stuod.pdf" target="_blank">PDF</a>] 
-              [<a href="https://github.com/matlong/qgcm_lu/tree/DMD" target="_blank">Code</a>]
-            </span>
-          </li>
-          
-          <li>
-            <span class="authors">L. Thiry, <b>L. Li</b>, E. Mémin.</span>
-            <span class="title">Modified (hyper-)viscosity for coarse-resolution ocean models.</span>
-            <span class="book"><i>In: Chapron et al. (eds)</i></span>
-            <span class="book-title"><i>Stochastic Transport in Upper Ocean Dynamics.</i></span>
-            <span class="series">Mathematics of Planet Earth, vol 10, pp 273-285.</span>
-            <span class="publisher">Springer, Cham,</span>
-            <span class="year">2023</span>.
-            <span class="links">
-              [<a href="https://doi.org/10.1007/978-3-031-18988-3_17" target="_blank">DOI</a>] 
-              [<a href="pdf/Thiry2023stuod.pdf" target="_blank">PDF</a>] 
-              [<a href="https://github.com/louity/qgm_pytorch" target="_blank">Code</a>]
-            </span>
-          </li>
-          
-          <li>
-            <span class="authors">F. Tucciarone, E. Mémin, <b>L. Li</b>.</span>
-            <span class="title">Primitive equations under location uncertainty: analytical description and model development.</span>
-            <span class="book"><i>In: Chapron et al. (eds)</i></span>
-            <span class="book-title"><i>Stochastic Transport in Upper Ocean Dynamics.</i></span>
-            <span class="series">Mathematics of Planet Earth, vol 10, pp 287-300.</span>
-            <span class="publisher">Springer, Cham,</span>
-            <span class="year">2023</span>.
-            <span class="links">
-              [<a href="https://doi.org/10.1007/978-3-031-18988-3_18" target="_blank">DOI</a>] 
-              [<a href="pdf/Tucciarone2023stuod.pdf" target="_blank">PDF</a>] 
-            </span>
-          </li>
-          
-          <li>
-            <span class="authors">C. Fiorini, P.-M. Boulvard, <b>L. Li</b>, E. Mémin.</span>
-            <span class="title">A two-step numerical scheme in time for surface quasi-geostrophic equations under location uncertainty.</span>
-            <span class="book"><i>In: Chapron et al. (eds)</i></span>
-            <span class="book-title"><i>Stochastic Transport in Upper Ocean Dynamics.</i></span>
-            <span class="series">Mathematics of Planet Earth, vol 10, pp 57-67.</span>
-            <span class="publisher">Springer, Cham,</span>
-            <span class="year">2023</span>.
-            <span class="links">
-              [<a href="https://doi.org/10.1007/978-3-031-18988-3_5" target="_blank">DOI</a>] 
-              [<a href="pdf/Fiorini2023stuod.pdf" target="_blank">PDF</a>] 
-            </span>
-          </li>
-          
-          <!-- Template:
-          <li>
-            <span class="authors"><b>L. Li</b>.</span>
-            <span class="title">.</span>
-            <span class="book"><i>In: Chapron et al. (eds)</i></span>
-            <span class="book-title"><i>Stochastic Transport in Upper Ocean Dynamics III.</i></span>
-            <span class="series">Mathematics of Planet Earth, vol 13, pp 287-303.</span>
-            <span class="publisher">Springer, Cham,</span>
-            <span class="year">2025</span>.
-            <span class="links">
-              [ <a href="" target="_blank" rel="noopener">DOI</a> | 
-                <a href="pdf/.pdf" target="_blank">PDF</a> | 
-                <a href="" target="_blank" rel="noopener">Code</a> ]
-            </span>
-          </li>
-          -->
-        </ul>
-      
-      </div>
+  /* ---------- scrollspy ---------- */
+  var links = [].slice.call(document.querySelectorAll(".nav a[href^='#']"));
+  var map = {};
+  links.forEach(function(a){ map[a.getAttribute("href").slice(1)] = a; });
+  var sections = [].slice.call(document.querySelectorAll("main section[id]"));
+  if ("IntersectionObserver" in window) {
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if (!e.isIntersecting) return;
+        links.forEach(function(a){ a.classList.remove("active"); });
+        var a = map[e.target.id];
+        if (a) a.classList.add("active");
+      });
+    }, { rootMargin: "-76px 0px -70% 0px", threshold: 0 });
+    sections.forEach(function(s){ io.observe(s); });
+  }
+})();
+</script>
 
-      <div class="presentations">
-        <h2 id="talks">Presentations</h2>
-
-        <h3>Conferences & Workshops</h3>
-        <ul class="presentation-list">
-          <li>
-            <span class="presentation-authors"><b>L. Li</b>, A. Considera, S. Thalabard.</span>
-            <span class="presentation-title"><i>Numerical study of passive scalar advection by turbulent random flows.</i></span>
-            <span class="presentation-event">Journées des GDRs “Mécanique des Fluides Géophysiques et Astrophysiques” et “Navier-Stokes 2.00”</span>,
-            <span class="presentation-location">Toulouse</span>,
-            <span class="presentation-year">Juin 2026.</span>
-            <span class="presentation-links">
-              [<a href="https://inria.hal.science/hal-05659784/document" target="_blank">Slides</a>]
-            </span>
-          </li>
-          
-          <li>
-            <span class="presentation-authors"><b>L. Li</b>, E. Mémin, B. Chapron.</span>
-            <span class="presentation-title"><i>Stochastic approaches to air-sea boundary layer dynamics.</i></span>
-            <span class="presentation-event">6th STUOD Annual Workshop</span>,
-            <span class="presentation-location">ICMS The Bayes Centre, Edinburgh, UK</span>,
-            <span class="presentation-year">Sep. 2025.</span>
-            <span class="presentation-links">
-              [<a href="https://hal.science/hal-05279728v1/file/main.pdf" target="_blank">Slides</a>]
-            </span>
-          </li>
-          
-          <li>
-            <span class="presentation-authors"><b>L. Li</b>, E. Mémin, B. Chapron.</span>
-            <span class="presentation-title"><i>A stochastic formulation of the Ekman-Stokes model.</i></span>
-            <span class="presentation-event">Atelier sur la représentation des fines échelles océaniques dans les simulations numériques</span>,
-            <span class="presentation-location">Ifremer, Plouzané, France</span>,
-            <span class="presentation-year">Oct. 2024.</span>
-            <span class="presentation-links">
-              [<a href="https://hal.science/hal-04957875v1/document" target="_blank">Slides</a>]
-            </span>
-          </li>
-          
-          <li>
-            <span class="presentation-authors"><b>L. Li</b>, E. Mémin, B. Chapron.</span>
-            <span class="presentation-title"><i>A generalized stochastic formulation of the Ekman-Stokes model with statistical analyses.</i></span>
-            <span class="presentation-event">5th STUOD Annual Workshop</span>,
-            <span class="presentation-location">Inria Rennes, France</span>,
-            <span class="presentation-year">Sep. 2024.</span>
-            <span class="presentation-links">
-              [<a href="https://hal.science/hal-04957876v1/document" target="_blank">Slides</a>]
-            </span>
-          </li>
-        
-          <li>
-            <span class="presentation-authors"><b>L. Li</b>, E. Mémin, B. Chapron, N. Lahaye, L. Thiry.</span>
-            <span class="presentation-title"><i>Uncertainty quantification of mesoscale air-sea interaction under transport noise.</i></span>
-            <span class="presentation-event">4th STUOD Annual Workshop</span>,
-            <span class="presentation-location">Ifremer, Plouzané, France</span>,
-            <span class="presentation-year">Sep. 2023.</span>
-            <span class="presentation-links">
-              [<a href="https://hal.science/hal-04957884v1/document" target="_blank">Slides</a>]
-            </span>
-          </li>
-          
-          <li>
-            <span class="presentation-authors"><b>L. Li</b>, E. Mémin, B. Chapron, N. Lahaye, G. Tissot.</span>
-            <span class="presentation-title"><i>Linear wave solutions of a stochastic shallow water model.</i></span>
-            <span class="presentation-event">22nd STUOD Sandbox Workshop</span>,
-            <span class="presentation-location">Online</span>,
-            <span class="presentation-year">Mar. 2023.</span>
-            <span class="presentation-links">
-              [<a href="https://hal.science/hal-05141156v1/document" target="_blank">Slides</a>]
-            </span>
-          </li>
-          
-          <li>
-            <span class="presentation-authors"><b>L. Li.</b></span>
-            <span class="presentation-title"><i>Stochastic transport in an idealized ocean-atmosphere coupled model.</i></span>
-            <span class="presentation-event">3rd STUOD Annual Workshop</span>,
-            <span class="presentation-location">Imperial College London, UK</span>,
-            <span class="presentation-year">Sep. 2022.</span>
-            <span class="presentation-links">
-              [<a href="https://hal.science/hal-04957883v1/document" target="_blank">Slides</a>]
-            </span>
-          </li>
-          
-          <li>
-            <span class="presentation-authors"><b>L. Li</b>, E. Mémin, B. Chapron, N. Lahaye.</span>
-            <span class="presentation-title"><i>Stochastic transport in an idealized ocean-atmosphere coupled system.</i></span>
-            <span class="presentation-event">EGU General Assembly</span>,
-            <span class="presentation-location">Vienna, Austria</span>,
-            <span class="presentation-year">May 2022.</span>
-            <span class="presentation-links">
-              [<a href="https://hal.science/hal-03676056v1/document" target="_blank">Slides</a>]
-            </span>
-          </li>
-          
-          <li>
-            <span class="presentation-authors"><b>L. Li</b>, B. Chapron, B. Deremble, N. Lahaye, E. Mémin.</span>
-            <span class="presentation-title"><i>Numerically modelling Location Uncertainty in geophysical fluid dynamics.</i></span>
-            <span class="presentation-event">11th STUOD Sandbox Workshop</span>,
-            <span class="presentation-location">Online</span>,
-            <span class="presentation-year">Nov. 2021.</span>
-            <span class="presentation-links">
-              [<a href="https://hal.science/hal-05141158v1/file/STUOD_11%20sandbox_L.Li.pdf" target="_blank">Slides</a>]
-            </span>
-          </li>
-          
-          <li>
-            <span class="presentation-authors"><b>L. Li</b>, B. Chapron, B. Deremble, N. Lahaye, E. Mémin.</span>
-            <span class="presentation-title"><i>Statistically data-driven modelling location uncertainty in mesoscale dynamics.</i></span>
-            <span class="presentation-event">2nd STUOD Annual Workshop</span>,
-            <span class="presentation-location">Online</span>,
-            <span class="presentation-year">Sep. 2021.</span>
-            <span class="presentation-links">
-              [<a href="https://hal.science/hal-03351970v1/file/Statistically%20data-diven%20modelling%20Location%20Uncertainty%20in%20mesoscale%20dynamics%20-%202nd%20Stochastic%20Trans.pdf" target="_blank">Slides</a>]
-            </span>
-          </li>
-          
-          <li>
-            <span class="presentation-authors"><b>L. Li</b>, B. Deremble, N. Lahaye, E. Mémin.</span>
-            <span class="presentation-title"><i>Stochastic modeling of mesoscale eddies.</i></span>
-            <span class="presentation-event">EGU General Assembly</span>,
-            <span class="presentation-location">Online</span>,
-            <span class="presentation-year">Apr. 2021.</span>
-            <span class="presentation-links">
-              [<a href="https://hal.science/hal-03221416v1/document" target="_blank">Slides</a>]
-            </span>
-          </li>
-          
-          <li>
-            <span class="presentation-authors"><b>L. Li</b>, B. Deremble, N. Lahaye, E. Mémin.</span>
-            <span class="presentation-title"><i>Stochastic modeling of the oceanic mesoscale eddies.</i></span>
-            <span class="presentation-event">6th STUOD Sandbox Workshop</span>,
-            <span class="presentation-location">Online</span>,
-            <span class="presentation-year">Feb. 2021.</span>
-            <span class="presentation-links">
-              [<a href="https://hal.science/hal-03140513v1/document" target="_blank">Slides</a>]
-            </span>
-          </li>
-          
-          <li>
-            <span class="presentation-authors"><b>L. Li</b>, E. Mémin, B. Deremble.</span>
-            <span class="presentation-title"><i>Stochastic modeling of the oceanic mesoscale eddies.</i></span>
-            <span class="presentation-event">1st STUOD Annual Workshop</span>,
-            <span class="presentation-location">Online</span>,
-            <span class="presentation-year">Sep. 2020.</span>
-            <span class="presentation-links">
-              [<a href="https://hal.science/hal-02946702v1/document" target="_blank">Slides<a>]
-            </span>
-          </li>
-          
-          <li>
-            <span class="presentation-authors"><b>L. Li</b>, R. Brecht, W. Bauer, E. Mémin.</span>
-            <span class="presentation-title"><i>Rotating shallow water flow under location uncertainty.</i></span>
-            <span class="presentation-event">3rd STUOD Sandbox Workshop</span>,
-            <span class="presentation-location">Online</span>,
-            <span class="presentation-year">Sep. 2020.</span>
-            <span class="presentation-links">
-              [<a href="https://hal.science/hal-02946835v1/document" target="_blank">Slides</a>]
-            </span>
-          </li>
-          
-          <li>
-            <span class="presentation-authors"><b>L. Li</b>, W. Bauer, E. Mémin.</span>
-            <span class="presentation-title"><i>Stochastic modeling of mesoscale eddies in oceanic dynamics.</i></span>
-            <span class="presentation-event">Workshop on Frontiers of Uncertainty Quantification in Fluid Dynamics</span>,
-            <span class="presentation-location">Pisa, Italy</span>,
-            <span class="presentation-year">Sep. 2019.</span>
-            <span class="presentation-links">
-              [<a href="https://hal.science/hal-02708167v1/document" target="_blank">Slides</a>]
-            </span>
-          </li>
-          
-          <li>
-            <span class="presentation-authors"><b>L. Li</b>, W. Bauer, E. Mémin.</span>
-            <span class="presentation-title"><i>Stochastic modeling of mesoscale eddies in barotropic wind-driven circulation.</i></span>
-            <span class="presentation-event">Workshop on Stochastic Parameterizations and Their Use in Data Assimilation</span>,
-            <span class="presentation-location">Imperial College London, UK</span>,
-            <span class="presentation-year">Jul. 2019.</span>
-            <span class="presentation-links">
-              [<a href="https://hal.science/hal-02712112v1/document" target="_blank">Poster</a>]
-            </span>
-          </li>
-          
-          <li>
-            <span class="presentation-authors"><b>L. Li</b>, W. Bauer, E. Mémin.</span>
-            <span class="presentation-title"><i>Oceanic dynamics under Location Uncertainty - Towards a consistent stochastic modeling.</i></span>
-            <span class="presentation-event">Workshop Conservation Principles, Data and Uncertainty in Atmosphere-Ocean Modeling</span>,
-            <span class="presentation-location">Potsdam, Germany</span>,
-            <span class="presentation-year">Apr. 2019.</span>
-            <span class="presentation-links">
-              [<a href="https://hal.science/hal-02708028v1/document" target="_blank">Slides</a>]
-            </span>
-          </li>
-        </ul>
-
-        <h3>Invited Seminars</h3>
-        <ul class="presentation-list">
-          <li>
-            <span class="presentation-authors"><b>L. Li</b>, F. Tucciarone, E. Mémin.</span>
-            <span class="presentation-title"><i>Stochastic modeling in geophysical fluid dynamics.</i></span>
-            <span class="presentation-event">ANGE Project-Team</span>,
-            <span class="presentation-location">Inria Paris, France</span>,
-            <span class="presentation-year">Mar. 2025.</span>
-            <span class="presentation-links">
-              [<a href="https://hal.science/hal-04978081v1/file/slides.pdf" target="_blank">Slides</a>] 
-            </span>
-            </span>
-          </li>
-        
-          <li>
-            <span class="presentation-authors"><b>L. Li.</b></span>
-            <span class="presentation-title"><i>Stochastic modeling in geophysical fluid dynamics.</i></span>
-            <span class="presentation-event">CALISTO Project-Team</span>,
-            <span class="presentation-location">Inria Sophia-Antipolis, France</span>,
-            <span class="presentation-year">Oct. 2024.</span>
-            <span class="presentation-links">
-                [<a href="https://hal.science/hal-04957880v1/document" target="_blank">Slides</a>]
-            </span>
-          </li>
-          
-          <li>
-            <span class="presentation-authors"><b>L. Li.</b></span>
-            <span class="presentation-title"><i>Stochastic modeling in geophysical fluid dynamics.</i></span>
-            <span class="presentation-event">Research Center for Mathematics and Interdisciplinary Sciences</span>,
-            <span class="presentation-location">Shandong University, Qingdao, China</span>,
-            <span class="presentation-year">Sep. 2024.</span>
-            <span class="presentation-links">
-              [<a href="https://hal.science/hal-04957878v1/document" target="_blank">Slides</a>]
-            </span>
-          </li>
-          
-          <li>
-            <span class="presentation-authors"><b>L. Li</b>, L. Thiry, E. Mémin.</span>
-            <span class="presentation-title"><i>Stochastic transport in an idealized ocean-atmosphere coupled model.</i></span>
-            <span class="presentation-event">AIRSEA Project-Team</span>,
-            <span class="presentation-location">Inria Grenoble, France</span>,
-            <span class="presentation-year">Nov. 2022.</span>
-            <span class="presentation-links">
-              [<a href="https://hal.science/hal-04957882v1/document" target="_blank">Slides</a>]
-            </span>
-          </li>
-        </ul>
-
-      </div>
-       
-    </section>
-  </main>
-
-  <footer>
-    <p>&copy; 2021 Long Li | Last updated: August 2026</p>
-  </footer>
 </body>
 </html>
