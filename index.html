@@ -12,7 +12,7 @@
 <meta property="og:title" content="Long Li — Applied Mathematician">
 <meta property="og:description" content="Stochastic modeling, uncertainty quantification and numerical methods for geophysical fluid dynamics.">
 <meta property="og:url" content="https://matlong.github.io/">
-<meta property="og:image" content="https://matlong.github.io/image/web/bqg.jpg">
+<meta property="og:image" content="https://matlong.github.io/image/web/qgna_web.jpg">
 <meta name="twitter:card" content="summary_large_image">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -55,6 +55,7 @@
   --accent-soft:#e7f0f9;
   --warm:#a63a2b;
   --warm-soft:#fbeeeb;
+  --axis:#9aa8b6;
   --shadow:0 1px 2px rgba(16,32,48,.06), 0 8px 24px rgba(16,32,48,.06);
   --shadow-lg:0 2px 4px rgba(16,32,48,.06), 0 18px 44px rgba(16,32,48,.12);
   --radius:14px;
@@ -74,6 +75,7 @@
     --accent-soft:#16283a;
     --warm:#e08a78;
     --warm-soft:#2e1f1c;
+    --axis:#5d7085;
     --shadow:0 1px 2px rgba(0,0,0,.4), 0 8px 24px rgba(0,0,0,.35);
     --shadow-lg:0 2px 4px rgba(0,0,0,.4), 0 18px 44px rgba(0,0,0,.5);
   }
@@ -89,6 +91,7 @@
   --accent-soft:#16283a;
   --warm:#e08a78;
   --warm-soft:#2e1f1c;
+  --axis:#5d7085;
   --shadow:0 1px 2px rgba(0,0,0,.4), 0 8px 24px rgba(0,0,0,.35);
   --shadow-lg:0 2px 4px rgba(0,0,0,.4), 0 18px 44px rgba(0,0,0,.5);
 }
@@ -111,12 +114,12 @@ h1,h2,h3{font-family:var(--serif); font-weight:600; line-height:1.2; letter-spac
 .hero{
   background:linear-gradient(180deg, var(--surface) 0%, var(--bg) 100%);
   border-bottom:1px solid var(--border);
-  padding:44px 0 38px;
+  padding:44px 0 34px;
 }
-.hero-grid{
+.hero-top{
   display:grid;
-  grid-template-columns:auto minmax(0,1fr) auto;
-  gap:36px;
+  grid-template-columns:auto minmax(0,1fr);
+  gap:34px;
   align-items:center;
 }
 .portrait{
@@ -148,23 +151,57 @@ h1,h2,h3{font-family:var(--serif); font-weight:600; line-height:1.2; letter-spac
 .chip:hover{text-decoration:none; border-color:var(--accent); color:var(--accent); transform:translateY(-1px)}
 .chip svg{width:15px; height:15px; fill:currentColor; flex:none}
 
-/* research figure stack */
-.figstack{display:flex; flex-direction:column; gap:10px; width:176px}
-.figcard{
-  position:relative; display:block; overflow:hidden; margin:0;
-  border-radius:9px; border:1px solid var(--border);
-  background:var(--surface-2); box-shadow:var(--shadow);
-  transition:.2s ease;
+/* ===================== multiscale band ===================== */
+.scaleband{
+  position:relative; margin:32px 0 0; padding:0;
 }
-.figcard:hover{transform:translateY(-2px); box-shadow:var(--shadow-lg); border-color:var(--accent)}
-.figcard img{width:100%; height:92px; object-fit:cover; object-position:center; display:block}
-.figcard.wide img{object-position:18% center}
-.figcard figcaption{
-  padding:6px 9px 7px;
-  font-size:.66rem; line-height:1.3; color:var(--muted);
-  border-top:1px solid var(--border); background:var(--bg);
+.band-scroll{overflow-x:auto; overflow-y:hidden; scrollbar-width:thin}
+.band-inner{
+  display:grid;
+  grid-template-columns:repeat(5, 1fr);
+  grid-template-rows:auto auto auto;
+  min-width:660px;
 }
-.figcard figcaption b{display:block; color:var(--text); font-weight:600; font-size:.71rem; letter-spacing:.005em}
+.fig{
+  grid-row:1;
+  display:flex; flex-direction:column; align-items:center; justify-content:flex-end;
+  padding:0 10px; min-width:0;
+}
+.fig img{
+  max-height:112px; max-width:100%; width:auto; height:auto;
+  display:block; border-radius:5px;
+  border:1px solid var(--border);
+  box-shadow:var(--shadow);
+}
+.fig::after{
+  content:""; width:1px; height:17px; margin-top:8px;
+  background:var(--axis); opacity:.75;
+}
+.band-axis{
+  grid-row:2; grid-column:1 / -1;
+  position:relative; height:2px; background:var(--axis);
+}
+.band-axis::after{
+  content:""; position:absolute; right:-1px; top:50%; transform:translateY(-50%);
+  border-left:9px solid var(--axis);
+  border-top:5.5px solid transparent; border-bottom:5.5px solid transparent;
+}
+.tick{
+  grid-row:3;
+  display:flex; flex-direction:column; align-items:center; gap:5px;
+  padding-top:0;
+}
+.tick::before{content:""; width:1px; height:7px; background:var(--axis)}
+.tick span{
+  font-size:.8rem; font-weight:600; color:var(--muted);
+  font-variant-numeric:tabular-nums; white-space:nowrap;
+}
+.tick sup{font-size:.62em; font-weight:600}
+.scaleband figcaption{
+  margin-top:13px; text-align:center;
+  font-size:.72rem; letter-spacing:.1em;
+  text-transform:uppercase; color:var(--muted); font-weight:600;
+}
 
 /* ============================ nav ============================ */
 .nav{
@@ -329,20 +366,23 @@ footer{
 
 /* ============================ responsive ============================ */
 @media (max-width:980px){
-  .hero-grid{grid-template-columns:auto minmax(0,1fr); gap:28px}
-  .figstack{
-    grid-column:1 / -1; flex-direction:row; width:100%;
-  }
-  .figstack .figcard{flex:1 1 0; min-width:0}
-  .figcard img{height:104px}
+  .hero-top{gap:28px}
+  .fig img{max-height:96px}
+  .fig{padding:0 6px}
 }
 @media (max-width:640px){
   .hero{padding:36px 0 30px}
-  .hero-grid{grid-template-columns:1fr; gap:22px; text-align:left}
-  .portrait{width:120px; height:120px}
-  .figstack{flex-direction:column; gap:10px}
-  .figstack .figcard{flex:0 0 auto}
-  .figcard img{height:120px}
+  .hero-top{grid-template-columns:1fr; gap:20px}
+  .portrait{width:118px; height:118px}
+  .scaleband{margin-top:26px}
+  .scaleband::after{
+    content:""; position:absolute; top:0; right:0; width:34px; height:124px;
+    background:linear-gradient(to right, transparent, var(--bg));
+    pointer-events:none;
+  }
+  .band-inner{min-width:600px}
+  .fig img{max-height:80px}
+  .tick span{font-size:.72rem}
   .reflist > li, .talklist > li{grid-template-columns:1fr; gap:6px}
   .yr{font-size:.86rem; font-family:var(--sans); font-weight:600}
   .tdate{font-size:.8rem}
@@ -355,7 +395,7 @@ footer{
   *{transition:none !important}
 }
 @media print{
-  .nav,.figstack,.filters,.themebtn{display:none}
+  .nav,.filters,.themebtn{display:none}
   body{font-size:11pt}
   .hero{background:none; padding:0}
 }
@@ -365,7 +405,8 @@ footer{
 
 <!-- ====================== HERO ====================== -->
 <header class="hero" id="top">
-  <div class="wrap hero-grid">
+  <div class="wrap">
+    <div class="hero-top">
 
     <img class="portrait" src="image/photo.jpg" alt="Portrait of Long Li" width="150" height="150">
 
@@ -405,22 +446,42 @@ footer{
       </p>
     </div>
 
-    <div class="figstack" aria-label="Selected simulation outputs">
-      <figure class="figcard">
-        <img src="image/web/bqg.jpg" alt="Relative vorticity field of a baroclinic quasi-geostrophic turbulence simulation" loading="lazy">
-        <figcaption><b>Baroclinic QG turbulence</b>Stochastic eddy parameterization</figcaption>
-      </figure>
-      <figure class="figcard">
-        <img src="image/web/rsw.jpg" alt="Vorticity field of a rotating shallow-water double-gyre simulation" loading="lazy">
-        <figcaption><b>Rotating shallow water</b>Wind-driven double gyre</figcaption>
-      </figure>
-      <figure class="figcard wide">
-        <img src="image/web/qgna.jpg" alt="Surface vorticity of a North Atlantic quasi-geostrophic simulation" loading="lazy">
-        <figcaption><b>North Atlantic QG</b>Realistic-geometry solver</figcaption>
-      </figure>
-    </div>
+    </div><!-- /hero-top -->
 
-  </div>
+    <figure class="scaleband" aria-label="Simulations across scales">
+      <div class="band-scroll">
+        <div class="band-inner">
+
+          <div class="fig">
+            <img src="image/web/rswat_web.png" alt="Global rotating shallow-water simulation on the sphere" width="292" height="295">
+          </div>
+          <div class="fig">
+            <img src="image/web/qgna_web.jpg" alt="North Atlantic quasi-geostrophic simulation" width="1000" height="545">
+          </div>
+          <div class="fig">
+            <img src="image/web/rswoc_web.jpg" alt="Wind-driven double-gyre rotating shallow-water simulation" width="759" height="760">
+          </div>
+          <div class="fig">
+            <img src="image/web/sqg_web.jpg" alt="Surface quasi-geostrophic vortices and filaments" width="547" height="463">
+          </div>
+          <div class="fig">
+            <img src="image/web/bqg_web.jpg" alt="Baroclinic quasi-geostrophic turbulence" width="757" height="760">
+          </div>
+
+          <div class="band-axis" role="presentation"></div>
+
+          <div class="tick"><span>10<sup>4</sup>&#8201;km</span></div>
+          <div class="tick"><span>10<sup>3</sup>&#8201;km</span></div>
+          <div class="tick"><span>10<sup>2</sup>&#8201;km</span></div>
+          <div class="tick"><span>10&#8201;km</span></div>
+          <div class="tick"><span>1&#8201;km</span></div>
+
+        </div>
+      </div>
+      <figcaption>Characteristic horizontal scale</figcaption>
+    </figure>
+
+  </div><!-- /wrap -->
 </header>
 
 <!-- ====================== NAV ====================== -->
